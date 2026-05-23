@@ -1,0 +1,41 @@
+{
+  "model_id": "microsoft/rad-dino",
+  "weight_source": "local_cache",
+  "images_attempted": 100,
+  "images_succeeded": 100,
+  "images_failed": 0,
+  "embedding_shape": [
+    100,
+    768
+  ],
+  "hidden_size": 768,
+  "runtime_seconds": 90.35,
+  "cpu_memory_observation": {
+    "total_gb": 15.63,
+    "available_gb": 4.38,
+    "used_percent": 72.0
+  },
+  "gpu_vram_observation": {
+    "cuda_available": false,
+    "gpu_name": null,
+    "vram_total_mb": null,
+    "vram_allocated_mb_after_model_load": null
+  },
+  "failure_details": [],
+  "medical_claims": "none",
+  "first_embedding_preview": [
+    -0.078466,
+    0.557218,
+    -1.1436,
+    -0.034527,
+    0.296606,
+    -0.496829,
+    -0.110776,
+    -0.171929,
+    -0.131961,
+    0.287808
+  ],
+  "weights_downloaded_this_session": true,
+  "oom_cpu_fallback_triggered": false,
+  "effective_device": "cpu"
+}

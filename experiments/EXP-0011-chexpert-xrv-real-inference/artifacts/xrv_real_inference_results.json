@@ -1,0 +1,264 @@
+{
+  "model": "densenet121-res224-all",
+  "torchxrayvision_version": "1.4.0",
+  "data_mode": "real_chexpert_sample",
+  "num_images": 5,
+  "pathologies": [
+    "Atelectasis",
+    "Consolidation",
+    "Infiltration",
+    "Pneumothorax",
+    "Edema",
+    "Emphysema",
+    "Fibrosis",
+    "Effusion",
+    "Pneumonia",
+    "Pleural_Thickening",
+    "Cardiomegaly",
+    "Nodule",
+    "Mass",
+    "Hernia",
+    "Lung Lesion",
+    "Fracture",
+    "Lung Opacity",
+    "Enlarged Cardiomediastinum"
+  ],
+  "results": [
+    {
+      "copied_filename": "01_view1_frontal.jpg",
+      "original_filename": "view1_frontal.jpg",
+      "preprocess": {
+        "shape": [
+          1,
+          1,
+          224,
+          224
+        ],
+        "input_min": -1024.0,
+        "input_max": 1024.0
+      },
+      "chexpert_label_row_if_available": {
+        "Path": "CheXpert-v1.0-small/valid/patient64541/study1/view1_frontal.jpg",
+        "Sex": "Male",
+        "Age": "73",
+        "Frontal/Lateral": "Frontal",
+        "AP/PA": "AP",
+        "No Finding": "0.0",
+        "Cardiomegaly": "1.0",
+        "Edema": "0.0",
+        "Pneumonia": "0.0",
+        "Atelectasis": "0.0",
+        "Pleural Effusion": "0.0"
+      },
+      "xrv_outputs": [
+        0.6124581098556519,
+        0.5212419033050537,
+        0.5654619932174683,
+        0.5068260431289673,
+        0.5046042203903198,
+        0.5024620294570923,
+        0.5234198570251465,
+        0.5071728825569153,
+        0.5056943893432617,
+        0.5113158226013184,
+        0.5475633144378662,
+        0.5093823671340942,
+        0.5395519733428955,
+        0.6889437437057495,
+        0.4049459993839264,
+        0.5217189788818359,
+        0.5619775056838989,
+        0.5006247162818909
+      ]
+    },
+    {
+      "copied_filename": "02_view1_frontal.jpg",
+      "original_filename": "view1_frontal.jpg",
+      "preprocess": {
+        "shape": [
+          1,
+          1,
+          224,
+          224
+        ],
+        "input_min": -1024.0,
+        "input_max": 1024.0
+      },
+      "chexpert_label_row_if_available": {
+        "Path": "CheXpert-v1.0-small/valid/patient64542/study1/view1_frontal.jpg",
+        "Sex": "Male",
+        "Age": "70",
+        "Frontal/Lateral": "Frontal",
+        "AP/PA": "PA",
+        "No Finding": "0.0",
+        "Cardiomegaly": "0.0",
+        "Edema": "0.0",
+        "Pneumonia": "0.0",
+        "Atelectasis": "0.0",
+        "Pleural Effusion": "0.0"
+      },
+      "xrv_outputs": [
+        0.11655278503894806,
+        0.14872534573078156,
+        0.38238847255706787,
+        0.504117488861084,
+        0.023124152794480324,
+        0.5103640556335449,
+        0.1700010895729065,
+        0.11455023288726807,
+        0.23632143437862396,
+        0.05728847533464432,
+        0.14838358759880066,
+        0.5055041909217834,
+        0.5034917593002319,
+        0.0006021231529302895,
+        0.5104231834411621,
+        0.5044187307357788,
+        0.12410582602024078,
+        0.1656838357448578
+      ]
+    },
+    {
+      "copied_filename": "03_view1_frontal.jpg",
+      "original_filename": "view1_frontal.jpg",
+      "preprocess": {
+        "shape": [
+          1,
+          1,
+          224,
+          224
+        ],
+        "input_min": -1024.0,
+        "input_max": 1024.0
+      },
+      "chexpert_label_row_if_available": {
+        "Path": "CheXpert-v1.0-small/valid/patient64543/study1/view1_frontal.jpg",
+        "Sex": "Male",
+        "Age": "85",
+        "Frontal/Lateral": "Frontal",
+        "AP/PA": "AP",
+        "No Finding": "0.0",
+        "Cardiomegaly": "0.0",
+        "Edema": "1.0",
+        "Pneumonia": "0.0",
+        "Atelectasis": "0.0",
+        "Pleural Effusion": "0.0"
+      },
+      "xrv_outputs": [
+        0.5263568758964539,
+        0.5237159729003906,
+        0.538285493850708,
+        0.5317665934562683,
+        0.5552147626876831,
+        0.5103014707565308,
+        0.5091547966003418,
+        0.5436121225357056,
+        0.5285050868988037,
+        0.29829126596450806,
+        0.5159136652946472,
+        0.5024620890617371,
+        0.4518035650253296,
+        0.03775870054960251,
+        0.2890481650829315,
+        0.5894540548324585,
+        0.6773681640625,
+        0.5155333280563354
+      ]
+    },
+    {
+      "copied_filename": "04_view1_frontal.jpg",
+      "original_filename": "view1_frontal.jpg",
+      "preprocess": {
+        "shape": [
+          1,
+          1,
+          224,
+          224
+        ],
+        "input_min": -1024.0,
+        "input_max": 1024.0
+      },
+      "chexpert_label_row_if_available": {
+        "Path": "CheXpert-v1.0-small/valid/patient64544/study1/view1_frontal.jpg",
+        "Sex": "Female",
+        "Age": "42",
+        "Frontal/Lateral": "Frontal",
+        "AP/PA": "AP",
+        "No Finding": "1.0",
+        "Cardiomegaly": "0.0",
+        "Edema": "0.0",
+        "Pneumonia": "0.0",
+        "Atelectasis": "0.0",
+        "Pleural Effusion": "0.0"
+      },
+      "xrv_outputs": [
+        0.5850630402565002,
+        0.585869550704956,
+        0.6050248146057129,
+        0.5805554389953613,
+        0.10017271339893341,
+        0.21349388360977173,
+        0.16402225196361542,
+        0.5416146516799927,
+        0.6283243894577026,
+        0.26601383090019226,
+        0.030903317034244537,
+        0.509270191192627,
+        0.5189133882522583,
+        0.03644818440079689,
+        0.5199218988418579,
+        0.5863246917724609,
+        0.5822787284851074,
+        0.24054338037967682
+      ]
+    },
+    {
+      "copied_filename": "05_view1_frontal.jpg",
+      "original_filename": "view1_frontal.jpg",
+      "preprocess": {
+        "shape": [
+          1,
+          1,
+          224,
+          224
+        ],
+        "input_min": -1024.0,
+        "input_max": 1024.0
+      },
+      "chexpert_label_row_if_available": {
+        "Path": "CheXpert-v1.0-small/valid/patient64545/study1/view1_frontal.jpg",
+        "Sex": "Female",
+        "Age": "55",
+        "Frontal/Lateral": "Frontal",
+        "AP/PA": "AP",
+        "No Finding": "0.0",
+        "Cardiomegaly": "0.0",
+        "Edema": "0.0",
+        "Pneumonia": "0.0",
+        "Atelectasis": "1.0",
+        "Pleural Effusion": "1.0"
+      },
+      "xrv_outputs": [
+        0.7835373282432556,
+        0.6317212581634521,
+        0.5674690008163452,
+        0.533555269241333,
+        0.5559335947036743,
+        0.5079898238182068,
+        0.5182594060897827,
+        0.7864537835121155,
+        0.5699095726013184,
+        0.500541090965271,
+        0.6066017150878906,
+        0.5090640187263489,
+        0.5412821769714355,
+        0.5910677909851074,
+        0.5474318265914917,
+        0.6026954650878906,
+        0.7657393217086792,
+        0.538610577583313
+      ]
+    }
+  ],
+  "medical_claims": "none; technical inference smoke test only"
+}

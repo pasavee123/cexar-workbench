@@ -1,0 +1,16 @@
+# REQUIREMENTS_BASELINE_XRV.txt
+# Environment: cexar-baseline
+# Purpose: TorchXRayVision pretrained inference on real CXR data
+# PyTorch: 2.0.1 (pinned — do NOT upgrade)
+# Status: Smoke-tested in EXP-0002. Ready for real-data inference.
+#
+# Create:  python -m venv .venvs\cexar-baseline
+# Activate: .\.venvs\cexar-baseline\Scripts\Activate.ps1
+# Install:  pip install -r experiments\EXP-0009-env-isolation-plan\REQUIREMENTS_BASELINE_XRV.txt
+
+torch==2.0.1
+torchvision==0.15.2
+torchxrayvision==1.4.0
+numpy>=1.21,<2.0
+Pillow>=9.0
+scikit-image>=0.19

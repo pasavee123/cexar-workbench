@@ -1,0 +1,7 @@
+seed: 42
+dataset:
+  name: test
+  batch_size: 16
+model:
+  backbone: densenet121
+  num_classes: 18

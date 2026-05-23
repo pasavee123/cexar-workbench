@@ -1,0 +1,109 @@
+{
+  "experiment": "EXP-0012-xrv-chexpert-label-crosswalk",
+  "model": "densenet121-res224-all",
+  "torchxrayvision_version": "1.4.0",
+  "sample_description": "First 100 frontal validation images from CheXpert valid.csv (deterministic sort by Path)",
+  "num_images_attempted": 100,
+  "num_images_succeeded": 100,
+  "num_images_failed": 0,
+  "num_mapped_labels": 11,
+  "num_unmapped_xrv_labels": 7,
+  "auroc_count_computed": 9,
+  "auroc_values": [
+    0.8511904761904762,
+    0.9222222222222222,
+    0.5989583333333334,
+    0.8622482131254061,
+    0.8490675990675991,
+    0.7838541666666666,
+    0.8363283147158814,
+    0.8744,
+    0.8201970443349754
+  ],
+  "per_label": {
+    "Atelectasis": {
+      "chexpert_column": "Atelectasis",
+      "xrv_index": 0,
+      "num_samples": 100,
+      "auroc": 0.8511904761904762,
+      "status": "computed"
+    },
+    "Consolidation": {
+      "chexpert_column": "Consolidation",
+      "xrv_index": 1,
+      "num_samples": 100,
+      "auroc": 0.9222222222222222,
+      "status": "computed"
+    },
+    "Pneumothorax": {
+      "chexpert_column": "Pneumothorax",
+      "xrv_index": 3,
+      "num_samples": 100,
+      "auroc": 0.5989583333333334,
+      "status": "computed"
+    },
+    "Edema": {
+      "chexpert_column": "Edema",
+      "xrv_index": 4,
+      "num_samples": 100,
+      "auroc": 0.8622482131254061,
+      "status": "computed"
+    },
+    "Effusion": {
+      "chexpert_column": "Pleural Effusion",
+      "xrv_index": 7,
+      "num_samples": 100,
+      "auroc": 0.8490675990675991,
+      "status": "computed"
+    },
+    "Pneumonia": {
+      "chexpert_column": "Pneumonia",
+      "xrv_index": 8,
+      "num_samples": 100,
+      "auroc": 0.7838541666666666,
+      "status": "computed"
+    },
+    "Cardiomegaly": {
+      "chexpert_column": "Cardiomegaly",
+      "xrv_index": 10,
+      "num_samples": 100,
+      "auroc": 0.8363283147158814,
+      "status": "computed"
+    },
+    "Lung Lesion": {
+      "chexpert_column": "Lung Lesion",
+      "xrv_index": 14,
+      "num_samples": 100,
+      "auroc": null,
+      "status": "only one class present"
+    },
+    "Fracture": {
+      "chexpert_column": "Fracture",
+      "xrv_index": 15,
+      "num_samples": 100,
+      "auroc": null,
+      "status": "only one class present"
+    },
+    "Lung Opacity": {
+      "chexpert_column": "Lung Opacity",
+      "xrv_index": 16,
+      "num_samples": 100,
+      "auroc": 0.8744,
+      "status": "computed"
+    },
+    "Enlarged Cardiomediastinum": {
+      "chexpert_column": "Enlarged Cardiomediastinum",
+      "xrv_index": 17,
+      "num_samples": 100,
+      "auroc": 0.8201970443349754,
+      "status": "computed"
+    }
+  },
+  "medical_claims": "none; this is a pipeline sanity check only, not a clinical evaluation",
+  "notes": [
+    "AUROC computed with local implementation (sklearn not available in venv).",
+    "Only labels with both positive (1.0) and negative (0.0) examples were included.",
+    "Missing/NaN labels were excluded per-label.",
+    "Do not interpret these metrics as clinical performance."
+  ]
+}

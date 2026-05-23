@@ -1,0 +1,6 @@
+"Path","Sex","Age","Frontal/Lateral","AP/PA","No Finding","Cardiomegaly","Edema","Pneumonia","Atelectasis","Pleural Effusion"
+"CheXpert-v1.0-small/valid/patient64541/study1/view1_frontal.jpg","Male","73","Frontal","AP","0.0","1.0","0.0","0.0","0.0","0.0"
+"CheXpert-v1.0-small/valid/patient64542/study1/view1_frontal.jpg","Male","70","Frontal","PA","0.0","0.0","0.0","0.0","0.0","0.0"
+"CheXpert-v1.0-small/valid/patient64543/study1/view1_frontal.jpg","Male","85","Frontal","AP","0.0","0.0","1.0","0.0","0.0","0.0"
+"CheXpert-v1.0-small/valid/patient64544/study1/view1_frontal.jpg","Female","42","Frontal","AP","1.0","0.0","0.0","0.0","0.0","0.0"
+"CheXpert-v1.0-small/valid/patient64545/study1/view1_frontal.jpg","Female","55","Frontal","AP","0.0","0.0","0.0","0.0","1.0","1.0"

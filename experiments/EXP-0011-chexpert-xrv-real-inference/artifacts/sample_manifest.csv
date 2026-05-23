@@ -1,0 +1,6 @@
+"Index","Source","CopiedTo"
+"1","D:\Dataset_Chexpert\archive\valid\patient64541\study1\view1_frontal.jpg","experiments\EXP-0011-chexpert-xrv-real-inference\artifacts\test_images\01_view1_frontal.jpg"
+"2","D:\Dataset_Chexpert\archive\valid\patient64542\study1\view1_frontal.jpg","experiments\EXP-0011-chexpert-xrv-real-inference\artifacts\test_images\02_view1_frontal.jpg"
+"3","D:\Dataset_Chexpert\archive\valid\patient64543\study1\view1_frontal.jpg","experiments\EXP-0011-chexpert-xrv-real-inference\artifacts\test_images\03_view1_frontal.jpg"
+"4","D:\Dataset_Chexpert\archive\valid\patient64544\study1\view1_frontal.jpg","experiments\EXP-0011-chexpert-xrv-real-inference\artifacts\test_images\04_view1_frontal.jpg"
+"5","D:\Dataset_Chexpert\archive\valid\patient64545\study1\view1_frontal.jpg","experiments\EXP-0011-chexpert-xrv-real-inference\artifacts\test_images\05_view1_frontal.jpg"

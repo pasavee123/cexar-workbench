@@ -1,0 +1,28 @@
+# REQUIREMENTS_XAI.txt
+# Environment: cexar-xai
+# Purpose: pytorch-grad-cam, Captum, Quantus — heatmap generation and XAI metric evaluation
+# PyTorch: 2.0.1 (pinned — compatible with baseline XRV heatmaps)
+# Status: grad-cam and Captum smoke-tested on synthetic CNN in EXP-0005.
+#         Quantus installed --no-deps only — NO smoke test was run. Full-deps install is REQUIRED.
+#
+# Create:  python -m venv .venvs\cexar-xai
+# Activate: .\.venvs\cexar-xai\Scripts\Activate.ps1
+# Install:  pip install -r experiments\EXP-0009-env-isolation-plan\REQUIREMENTS_XAI.txt
+#
+# CRITICAL: Quantus MUST be installed with FULL dependencies (NOT --no-deps).
+#           The --no-deps install in EXP-0005 skipped scipy, scikit-image, opencv-python,
+#           matplotlib, and other runtime requirements. Without full deps, no Quantus metric
+#           can be evaluated. A dedicated smoke test (EXP-0011) must confirm Quantus produces
+#           numeric metric outputs before it can be considered for integration.
+
+torch==2.0.1
+torchvision==0.15.2
+grad-cam==1.5.5
+captum==0.9.0
+quantus==0.6.0
+scikit-image>=0.19
+opencv-python>=4.5
+scipy>=1.7
+numpy>=1.21,<2.0
+matplotlib>=3.5
+ttach==0.0.3

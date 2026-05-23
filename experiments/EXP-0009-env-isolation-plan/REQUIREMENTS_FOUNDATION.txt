@@ -1,0 +1,24 @@
+# REQUIREMENTS_FOUNDATION.txt
+# Environment: cexar-foundation
+# Purpose: RAD-DINO, BiomedCLIP, zero-shot classification, embedding extraction
+# PyTorch: >=2.4.1 (RAD-DINO requires 2.4+)
+# Status: RAD-DINO weights not downloaded (timeout in EXP-0003).
+#         BiomedCLIP forward pass confirmed in EXP-0004 (contaminated by timm upgrade).
+#
+# Create:  python -m venv .venvs\cexar-foundation
+# Activate: .\.venvs\cexar-foundation\Scripts\Activate.ps1
+# Install:  pip install -r experiments\EXP-0009-env-isolation-plan\REQUIREMENTS_FOUNDATION.txt
+#
+# WARNING: This env uses PyTorch >=2.4.1. It MUST NOT be mixed with cexar-baseline or cexar-xai
+#          (which use PyTorch 2.0.1). Always verify: python -c "import torch; print(torch.__version__)"
+#          before running experiments in this environment.
+
+torch>=2.4.1,<2.6
+torchvision>=0.19,<0.22
+transformers==4.40.2
+open_clip_torch==3.3.0
+timm==0.4.12
+huggingface_hub>=0.20
+tokenizers>=0.15
+numpy>=1.21,<2.0
+Pillow>=9.0

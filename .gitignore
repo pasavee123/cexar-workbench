@@ -1,0 +1,44 @@
+# Python / virtual environments
+.venvs/
+__pycache__/
+*.py[cod]
+
+# Local/global artifacts and caches
+/artifacts/
+.cache/
+
+# Model weights and binary model artifacts
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.bin
+*.npz
+
+# Medical image/data files copied for local experiments
+*.dcm
+*.dicom
+*.jpg
+*.jpeg
+*.png
+
+# Large or external dataset files accidentally copied into experiments
+experiments/**/training_images.csv
+
+# RAD-DINO snapshot spillover files in EXP-0013 root
+experiments/EXP-0013-rad-dino-foundation-embedding-smoke/.gitattributes
+experiments/EXP-0013-rad-dino-foundation-embedding-smoke/.gitignore
+experiments/EXP-0013-rad-dino-foundation-embedding-smoke/augmentations.py
+experiments/EXP-0013-rad-dino-foundation-embedding-smoke/config.json
+experiments/EXP-0013-rad-dino-foundation-embedding-smoke/LICENSE
+experiments/EXP-0013-rad-dino-foundation-embedding-smoke/preprocessor_config.json
+experiments/EXP-0013-rad-dino-foundation-embedding-smoke/pyproject.toml
+experiments/EXP-0013-rad-dino-foundation-embedding-smoke/ssl_default_config.yaml
+experiments/EXP-0013-rad-dino-foundation-embedding-smoke/vitb14_cxr.yaml
+
+# Local OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

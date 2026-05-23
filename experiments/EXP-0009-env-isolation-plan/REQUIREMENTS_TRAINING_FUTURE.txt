@@ -1,0 +1,26 @@
+# REQUIREMENTS_TRAINING_FUTURE.txt
+# Environment: cexar-training
+# Purpose: MONAI medical imaging, Hydra config management, PyTorch Lightning training loops,
+#          MLflow experiment tracking, W&B (optional, proprietary — team decision required).
+# PyTorch: >=2.4.1 (MONAI 1.5.2 requires 2.4+)
+# Status: MONAI and Hydra smoke-tested in EXP-0006 but results CONTAMINATED by global PyTorch upgrade.
+#         Must rerun in this isolated environment. Lightning, MLflow, W&B triaged only — no tests run.
+#
+# Create:  python -m venv .venvs\cexar-training
+# Activate: .\.venvs\cexar-training\Scripts\Activate.ps1
+# Install:  pip install -r experiments\EXP-0009-env-isolation-plan\REQUIREMENTS_TRAINING_FUTURE.txt
+#
+# WARNING: This env uses the newest PyTorch (>=2.4.1). It is the most volatile environment.
+#          Any upgrade here must NOT cascade to cexar-baseline, cexar-foundation, or cexar-xai.
+#          Do NOT install this env's packages in any other venv.
+
+torch>=2.4.1
+torchvision>=0.19
+monai==1.5.2
+hydra-core==1.3.2
+omegaconf>=2.2
+pytorch-lightning>=2.0
+mlflow>=2.8
+numpy>=1.21
+Pillow>=9.0
+# wandb>=0.16  # Uncomment ONLY after team decision on proprietary tracking
