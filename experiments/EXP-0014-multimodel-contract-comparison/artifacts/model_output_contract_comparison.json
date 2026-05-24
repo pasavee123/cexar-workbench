@@ -1,0 +1,97 @@
+{
+  "experiment": "EXP-0014",
+  "timestamp": "2026-05-24T02:20:01.680478+07:00",
+  "models": [
+    {
+      "model_id": "densenet121-res224-all (TorchXRayVision 1.4.0)",
+      "model_family": "supervised_chest_xray_classifier",
+      "source_experiment": "EXP-0012B",
+      "output_type": "per-class pathology logit scores",
+      "output_shape": [
+        100,
+        18
+      ],
+      "label_space": {
+        "type": "explicit pathology labels",
+        "count": 18,
+        "labels": [
+          "Atelectasis",
+          "Consolidation",
+          "Infiltration",
+          "Pneumothorax",
+          "Edema",
+          "Emphysema",
+          "Fibrosis",
+          "Effusion",
+          "Pneumonia",
+          "Pleural_Thickening",
+          "Cardiomegaly",
+          "Nodule",
+          "Mass",
+          "Hernia",
+          "Lung Lesion",
+          "Fracture",
+          "Lung Opacity",
+          "Enlarged Cardiomediastinum"
+        ],
+        "mapped_to_chexpert": 11,
+        "unmapped_count": 7,
+        "auroc_computed_for": 9,
+        "skipped_count": 2,
+        "skipped_labels": [
+          "Lung Lesion",
+          "Fracture"
+        ],
+        "skipped_reason": "only one class in sample"
+      },
+      "can_compute_direct_metrics": true,
+      "metric_type": "AUROC per label (pipeline sanity only)",
+      "direct_chexpert_mapping": "partial (11 of 18 XRV labels)",
+      "requires_downstream_head": false,
+      "clinical_claims_allowed": false
+    },
+    {
+      "model_id": "microsoft/rad-dino",
+      "model_family": "foundation_image_encoder",
+      "source_experiment": "EXP-0013",
+      "output_type": "image embeddings (frozen backbone)",
+      "output_shape": [
+        100,
+        768
+      ],
+      "embedding_dim": 768,
+      "label_space": {
+        "type": "none",
+        "count": 0,
+        "labels": [],
+        "mapped_to_chexpert": 0,
+        "note": "No label space; requires downstream head/probe for classification"
+      },
+      "can_compute_direct_metrics": false,
+      "metric_type": "none applicable without downstream head",
+      "direct_chexpert_mapping": "none",
+      "requires_downstream_head": true,
+      "downstream_head_note": "Linear probe, MLP, or specialized classifier needed",
+      "clinical_claims_allowed": false,
+      "embedding_stats_from_npz": {
+        "shape": [
+          100,
+          768
+        ],
+        "dtype": "float32",
+        "min": -2.3166933059692383,
+        "max": 2.6785202026367188,
+        "mean": 0.02434692531824112
+      }
+    }
+  ],
+  "key_differences": {
+    "xrv_classifier": "Produces pathology scores per class; output is directly interpretable as disease likelihood",
+    "rad_dino_encoder": "Produces generic image embeddings; no disease semantics without downstream training",
+    "metric_readiness": "XRV can compute per-label AUROC; RAD-DINO requires a separate classification head",
+    "label_dependency": "XRV has a fixed label space; RAD-DINO has no label space",
+    "downstream_flexibility": "RAD-DINO embeddings can serve any downstream task; XRV is locked to chest X-ray pathology classification",
+    "contract_compatibility": "These models cannot share a metric evaluation contract; they need separate adapter contracts"
+  },
+  "medical_claims_note": "No clinical claims are made. This is a structural contract comparison only."
+}

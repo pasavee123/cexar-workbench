@@ -108,6 +108,87 @@ If `commands.ps1` does not exist yet, the first action in the experiment folder 
 
 The runner must not run hidden, ad hoc, or "quick check" commands outside the command ledger.
 
+## Research Ledger Integrity Rules
+
+Experiment documentation is part of the experiment itself, not an after-the-fact summary.
+
+### Exact Command Recording
+
+Every terminal command must be recorded in `commands.ps1` exactly as executed, character-for-character.
+
+The runner must not summarize multiple commands with phrases such as:
+
+- `multiple commands`
+- `several probes`
+- `incantations`
+- `checked files`
+- `ran script`
+- `inspected artifacts`
+
+Each terminal command must have its own command ID and must include:
+
+- Purpose
+- Working directory
+- Exact command text
+- Whether the command is destructive
+- Result or exit code after execution
+
+If several related checks are needed, record each one separately. A grouped summary is allowed only after every exact command in the group has already been recorded.
+
+### Log-Before-Continue Discipline
+
+After each meaningful sub-step, the runner must update `EXPERIMENT_LOG.md` before continuing to the next phase.
+
+Meaningful sub-steps include:
+
+- Environment checks
+- Dependency checks
+- Artifact availability checks
+- Config creation
+- Model or weight loading
+- Shape inspection
+- Metric calculation
+- Script failure
+- Script retry
+- File creation or modification
+- Cleanup, copy, move, rename, or delete attempts
+
+`EXPERIMENT_LOG.md` must preserve the real chronological order of the run. The runner must not run the whole experiment first and reconstruct the log afterward unless the file is explicitly marked as an audit backfill.
+
+### Zero Fabrication
+
+The runner must only record facts that were directly observed from terminal output, generated files, inspected artifacts, or explicit human/Codex instructions.
+
+The runner must not invent or infer:
+
+- Metric values
+- Timings
+- Memory or VRAM usage
+- Success or failure counts
+- File paths
+- Environment versions
+- Command outputs
+- Reasons for failure
+
+If evidence is missing, write `UNKNOWN` or `NOT MEASURED`, then explain what evidence would be needed.
+
+### Evidence-First Reporting
+
+Every claim in `RESULT.md` must be traceable to at least one of:
+
+- A command recorded in `commands.ps1`
+- A matching entry in `EXPERIMENT_LOG.md`
+- A generated artifact file
+- An explicitly labeled human/Codex instruction
+
+If a result cannot be traced, it must be marked as unsupported.
+
+### Stop On Documentation Drift
+
+If the runner notices that commands were executed without exact command recording, or that logs no longer match the real execution order, it must stop normal work and write a compliance note in `FAILURE_REPORT.md` or `EXPERIMENT_LOG.md`.
+
+The runner must not silently continue with incomplete lineage.
+
 ## Cleanup, Move, And Delete Controls
 
 Cleanup is never exempt from logging.
