@@ -1,0 +1,106 @@
+{
+  "manifest_size": 1000,
+  "manifest_file": "candidate_manifest_1k.csv",
+  "labels": {
+    "Atelectasis": {
+      "positive_count": 163,
+      "negative_count": 7,
+      "uncertain_count": 163,
+      "missing_count": 667,
+      "total_labeled": 333,
+      "usable_for_training": true,
+      "reason_if_not_usable": ""
+    },
+    "Consolidation": {
+      "positive_count": 67,
+      "negative_count": 138,
+      "uncertain_count": 119,
+      "missing_count": 676,
+      "total_labeled": 324,
+      "usable_for_training": true,
+      "reason_if_not_usable": ""
+    },
+    "Pneumothorax": {
+      "positive_count": 95,
+      "negative_count": 255,
+      "uncertain_count": 15,
+      "missing_count": 635,
+      "total_labeled": 365,
+      "usable_for_training": true,
+      "reason_if_not_usable": ""
+    },
+    "Edema": {
+      "positive_count": 266,
+      "negative_count": 75,
+      "uncertain_count": 67,
+      "missing_count": 592,
+      "total_labeled": 408,
+      "usable_for_training": true,
+      "reason_if_not_usable": ""
+    },
+    "Pleural Effusion": {
+      "positive_count": 388,
+      "negative_count": 145,
+      "uncertain_count": 46,
+      "missing_count": 421,
+      "total_labeled": 579,
+      "usable_for_training": true,
+      "reason_if_not_usable": ""
+    },
+    "Pneumonia": {
+      "positive_count": 32,
+      "negative_count": 10,
+      "uncertain_count": 85,
+      "missing_count": 873,
+      "total_labeled": 127,
+      "usable_for_training": true,
+      "reason_if_not_usable": ""
+    },
+    "Cardiomegaly": {
+      "positive_count": 133,
+      "negative_count": 41,
+      "uncertain_count": 36,
+      "missing_count": 790,
+      "total_labeled": 210,
+      "usable_for_training": true,
+      "reason_if_not_usable": ""
+    },
+    "Lung Lesion": {
+      "positive_count": 44,
+      "negative_count": 6,
+      "uncertain_count": 2,
+      "missing_count": 948,
+      "total_labeled": 52,
+      "usable_for_training": true,
+      "reason_if_not_usable": ""
+    },
+    "Fracture": {
+      "positive_count": 37,
+      "negative_count": 11,
+      "uncertain_count": 4,
+      "missing_count": 948,
+      "total_labeled": 52,
+      "usable_for_training": true,
+      "reason_if_not_usable": ""
+    },
+    "Lung Opacity": {
+      "positive_count": 483,
+      "negative_count": 24,
+      "uncertain_count": 28,
+      "missing_count": 465,
+      "total_labeled": 535,
+      "usable_for_training": true,
+      "reason_if_not_usable": ""
+    },
+    "Enlarged Cardiomediastinum": {
+      "positive_count": 55,
+      "negative_count": 89,
+      "uncertain_count": 62,
+      "missing_count": 794,
+      "total_labeled": 206,
+      "usable_for_training": true,
+      "reason_if_not_usable": ""
+    }
+  },
+  "uncertain_label_policy_note": "Uncertain labels (-1.0) are reported separately. Policy recommendation: U-zeros (treat -1.0 as 0.0/negative) is the standard CheXpert approach. U-ignore is alternative. Requires Codex/human decision before EXP-0017."
+}

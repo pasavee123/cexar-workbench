@@ -1,0 +1,170 @@
+{
+  "patient_ids_available": true,
+  "unique_patients_in_manifest": 982,
+  "split_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "seed": 42,
+  "train_patients": 687,
+  "validation_patients": 147,
+  "test_patients": 148,
+  "no_patient_overlap": true,
+  "split_checks_per_label": {
+    "Atelectasis": {
+      "train_positive": 121,
+      "train_negative": 6,
+      "validation_positive": 15,
+      "validation_negative": 1,
+      "test_positive": 27,
+      "test_negative": 0,
+      "has_pos_in_all_splits": true,
+      "has_neg_in_all_splits": false,
+      "needs_stratified_sampling": true,
+      "needs_stratified_reasons": [
+        "validation_negative=1 (below threshold 3)",
+        "test_negative=0 (no samples in split)"
+      ]
+    },
+    "Consolidation": {
+      "train_positive": 52,
+      "train_negative": 105,
+      "validation_positive": 4,
+      "validation_negative": 17,
+      "test_positive": 11,
+      "test_negative": 16,
+      "has_pos_in_all_splits": true,
+      "has_neg_in_all_splits": true,
+      "needs_stratified_sampling": false,
+      "needs_stratified_reasons": []
+    },
+    "Pneumothorax": {
+      "train_positive": 68,
+      "train_negative": 181,
+      "validation_positive": 14,
+      "validation_negative": 34,
+      "test_positive": 13,
+      "test_negative": 40,
+      "has_pos_in_all_splits": true,
+      "has_neg_in_all_splits": true,
+      "needs_stratified_sampling": false,
+      "needs_stratified_reasons": []
+    },
+    "Edema": {
+      "train_positive": 177,
+      "train_negative": 55,
+      "validation_positive": 43,
+      "validation_negative": 7,
+      "test_positive": 46,
+      "test_negative": 13,
+      "has_pos_in_all_splits": true,
+      "has_neg_in_all_splits": true,
+      "needs_stratified_sampling": false,
+      "needs_stratified_reasons": []
+    },
+    "Pleural Effusion": {
+      "train_positive": 266,
+      "train_negative": 108,
+      "validation_positive": 59,
+      "validation_negative": 17,
+      "test_positive": 63,
+      "test_negative": 20,
+      "has_pos_in_all_splits": true,
+      "has_neg_in_all_splits": true,
+      "needs_stratified_sampling": false,
+      "needs_stratified_reasons": []
+    },
+    "Pneumonia": {
+      "train_positive": 23,
+      "train_negative": 9,
+      "validation_positive": 6,
+      "validation_negative": 0,
+      "test_positive": 3,
+      "test_negative": 1,
+      "has_pos_in_all_splits": true,
+      "has_neg_in_all_splits": false,
+      "needs_stratified_sampling": true,
+      "needs_stratified_reasons": [
+        "validation_negative=0 (no samples in split)",
+        "test_negative=1 (below threshold 3)"
+      ]
+    },
+    "Cardiomegaly": {
+      "train_positive": 95,
+      "train_negative": 30,
+      "validation_positive": 18,
+      "validation_negative": 3,
+      "test_positive": 20,
+      "test_negative": 8,
+      "has_pos_in_all_splits": true,
+      "has_neg_in_all_splits": true,
+      "needs_stratified_sampling": false,
+      "needs_stratified_reasons": []
+    },
+    "Lung Lesion": {
+      "train_positive": 28,
+      "train_negative": 6,
+      "validation_positive": 8,
+      "validation_negative": 0,
+      "test_positive": 8,
+      "test_negative": 0,
+      "has_pos_in_all_splits": true,
+      "has_neg_in_all_splits": false,
+      "needs_stratified_sampling": true,
+      "needs_stratified_reasons": [
+        "validation_negative=0 (no samples in split)",
+        "test_negative=0 (no samples in split)"
+      ]
+    },
+    "Fracture": {
+      "train_positive": 26,
+      "train_negative": 8,
+      "validation_positive": 8,
+      "validation_negative": 1,
+      "test_positive": 3,
+      "test_negative": 2,
+      "has_pos_in_all_splits": true,
+      "has_neg_in_all_splits": true,
+      "needs_stratified_sampling": true,
+      "needs_stratified_reasons": [
+        "validation_negative=1 (below threshold 3)",
+        "test_negative=2 (below threshold 3)"
+      ]
+    },
+    "Lung Opacity": {
+      "train_positive": 331,
+      "train_negative": 17,
+      "validation_positive": 78,
+      "validation_negative": 2,
+      "test_positive": 74,
+      "test_negative": 5,
+      "has_pos_in_all_splits": true,
+      "has_neg_in_all_splits": true,
+      "needs_stratified_sampling": true,
+      "needs_stratified_reasons": [
+        "validation_negative=2 (below threshold 3)"
+      ]
+    },
+    "Enlarged Cardiomediastinum": {
+      "train_positive": 44,
+      "train_negative": 63,
+      "validation_positive": 6,
+      "validation_negative": 15,
+      "test_positive": 5,
+      "test_negative": 11,
+      "has_pos_in_all_splits": true,
+      "has_neg_in_all_splits": true,
+      "needs_stratified_sampling": false,
+      "needs_stratified_reasons": []
+    }
+  },
+  "labels_needing_stratified_sampling": [
+    "Atelectasis",
+    "Pneumonia",
+    "Lung Lesion",
+    "Fracture",
+    "Lung Opacity"
+  ],
+  "recommendation": "Patient-level split is feasible, but the current random 70/15/15 split is not metric-ready for all labels. EXP-0017 should use stratified or targeted patient-level splitting, especially for labels with missing or low negative/positive representation in validation/test."
+}
