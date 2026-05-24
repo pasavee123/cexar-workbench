@@ -29,8 +29,13 @@ software:
   cuda:
     runner_may_select_compatible_version: true
     required_for_a40: true
+    selected_version: "12.1"
+    rationale: "A40 Ampere SM 8.6 supports CUDA 12.x. CUDA 12.1 is stable with PyTorch 2.3 and widely available on cloud Ubuntu 22.04 images."
   pytorch:
     runner_may_select_cuda_build: true
+    selected_version: "2.3.1"
+    selected_cuda_build: "cu121"
+    rationale: "PyTorch 2.3.x offers stable torch.compile, CUDA 12.1 support, and compatibility with HuggingFace transformers for RAD-DINO."
   packages:
     required:
       - torch
