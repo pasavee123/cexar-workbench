@@ -1,0 +1,145 @@
+{
+  "Atelectasis": {
+    "label": "Atelectasis",
+    "model_type": "sklearn.linear_model.LogisticRegression",
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 42
+    },
+    "coef_nonzero_count": 768,
+    "intercept": -3.109307060886377,
+    "experimental_only": true
+  },
+  "Consolidation": {
+    "label": "Consolidation",
+    "model_type": "sklearn.linear_model.LogisticRegression",
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 42
+    },
+    "coef_nonzero_count": 768,
+    "intercept": -5.072466291880626,
+    "experimental_only": true
+  },
+  "Pneumothorax": {
+    "label": "Pneumothorax",
+    "model_type": "sklearn.linear_model.LogisticRegression",
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 42
+    },
+    "coef_nonzero_count": 768,
+    "intercept": -4.627511818667598,
+    "experimental_only": true
+  },
+  "Edema": {
+    "label": "Edema",
+    "model_type": "sklearn.linear_model.LogisticRegression",
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 42
+    },
+    "coef_nonzero_count": 768,
+    "intercept": -0.7427557772545353,
+    "experimental_only": true
+  },
+  "Pleural Effusion": {
+    "label": "Pleural Effusion",
+    "model_type": "sklearn.linear_model.LogisticRegression",
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 42
+    },
+    "coef_nonzero_count": 768,
+    "intercept": -0.7859542666875314,
+    "experimental_only": true
+  },
+  "Pneumonia": {
+    "label": "Pneumonia",
+    "model_type": "sklearn.linear_model.LogisticRegression",
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 42
+    },
+    "coef_nonzero_count": 768,
+    "intercept": -6.398251080775536,
+    "experimental_only": true
+  },
+  "Cardiomegaly": {
+    "label": "Cardiomegaly",
+    "model_type": "sklearn.linear_model.LogisticRegression",
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 42
+    },
+    "coef_nonzero_count": 768,
+    "intercept": -3.783670127474937,
+    "experimental_only": true
+  },
+  "Lung Lesion": {
+    "label": "Lung Lesion",
+    "model_type": "sklearn.linear_model.LogisticRegression",
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 42
+    },
+    "coef_nonzero_count": 768,
+    "intercept": -6.0882685584639935,
+    "experimental_only": true
+  },
+  "Fracture": {
+    "label": "Fracture",
+    "model_type": "sklearn.linear_model.LogisticRegression",
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 42
+    },
+    "coef_nonzero_count": 768,
+    "intercept": -6.234272587162368,
+    "experimental_only": true
+  },
+  "Lung Opacity": {
+    "label": "Lung Opacity",
+    "model_type": "sklearn.linear_model.LogisticRegression",
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 42
+    },
+    "coef_nonzero_count": 768,
+    "intercept": 0.11982779118123876,
+    "experimental_only": true
+  },
+  "Enlarged Cardiomediastinum": {
+    "label": "Enlarged Cardiomediastinum",
+    "model_type": "sklearn.linear_model.LogisticRegression",
+    "config": {
+      "class_weight": "balanced",
+      "max_iter": 1000,
+      "solver": "lbfgs",
+      "random_state": 42
+    },
+    "coef_nonzero_count": 768,
+    "intercept": -4.899894767531081,
+    "experimental_only": true
+  }
+}

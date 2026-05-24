@@ -1,0 +1,154 @@
+{
+  "seed": 42,
+  "unique_patients": 982,
+  "train_patients": 688,
+  "validation_patients": 147,
+  "test_patients": 147,
+  "train_images": 698,
+  "validation_images": 152,
+  "test_images": 150,
+  "no_patient_overlap": true,
+  "uncertain_label_policy": "U-zeros (-1.0 -> 0.0)",
+  "min_class_threshold": 3,
+  "per_label_counts": {
+    "Atelectasis": {
+      "train_positive": 105,
+      "train_negative": 593,
+      "validation_positive": 28,
+      "validation_negative": 124,
+      "test_positive": 30,
+      "test_negative": 120,
+      "all_pos_in_all_splits": true,
+      "all_neg_in_all_splits": true,
+      "issues": []
+    },
+    "Consolidation": {
+      "train_positive": 44,
+      "train_negative": 654,
+      "validation_positive": 11,
+      "validation_negative": 141,
+      "test_positive": 12,
+      "test_negative": 138,
+      "all_pos_in_all_splits": true,
+      "all_neg_in_all_splits": true,
+      "issues": []
+    },
+    "Pneumothorax": {
+      "train_positive": 67,
+      "train_negative": 631,
+      "validation_positive": 12,
+      "validation_negative": 140,
+      "test_positive": 16,
+      "test_negative": 134,
+      "all_pos_in_all_splits": true,
+      "all_neg_in_all_splits": true,
+      "issues": []
+    },
+    "Edema": {
+      "train_positive": 180,
+      "train_negative": 518,
+      "validation_positive": 46,
+      "validation_negative": 106,
+      "test_positive": 40,
+      "test_negative": 110,
+      "all_pos_in_all_splits": true,
+      "all_neg_in_all_splits": true,
+      "issues": []
+    },
+    "Pleural Effusion": {
+      "train_positive": 255,
+      "train_negative": 443,
+      "validation_positive": 68,
+      "validation_negative": 84,
+      "test_positive": 65,
+      "test_negative": 85,
+      "all_pos_in_all_splits": true,
+      "all_neg_in_all_splits": true,
+      "issues": []
+    },
+    "Pneumonia": {
+      "train_positive": 22,
+      "train_negative": 676,
+      "validation_positive": 6,
+      "validation_negative": 146,
+      "test_positive": 4,
+      "test_negative": 146,
+      "all_pos_in_all_splits": true,
+      "all_neg_in_all_splits": true,
+      "issues": []
+    },
+    "Cardiomegaly": {
+      "train_positive": 85,
+      "train_negative": 613,
+      "validation_positive": 25,
+      "validation_negative": 127,
+      "test_positive": 23,
+      "test_negative": 127,
+      "all_pos_in_all_splits": true,
+      "all_neg_in_all_splits": true,
+      "issues": []
+    },
+    "Lung Lesion": {
+      "train_positive": 32,
+      "train_negative": 666,
+      "validation_positive": 6,
+      "validation_negative": 146,
+      "test_positive": 6,
+      "test_negative": 144,
+      "all_pos_in_all_splits": true,
+      "all_neg_in_all_splits": true,
+      "issues": []
+    },
+    "Fracture": {
+      "train_positive": 32,
+      "train_negative": 666,
+      "validation_positive": 1,
+      "validation_negative": 151,
+      "test_positive": 4,
+      "test_negative": 146,
+      "all_pos_in_all_splits": false,
+      "all_neg_in_all_splits": true,
+      "issues": [
+        "validation_positive=1"
+      ]
+    },
+    "Lung Opacity": {
+      "train_positive": 339,
+      "train_negative": 359,
+      "validation_positive": 64,
+      "validation_negative": 88,
+      "test_positive": 80,
+      "test_negative": 70,
+      "all_pos_in_all_splits": true,
+      "all_neg_in_all_splits": true,
+      "issues": []
+    },
+    "Enlarged Cardiomediastinum": {
+      "train_positive": 36,
+      "train_negative": 662,
+      "validation_positive": 10,
+      "validation_negative": 142,
+      "test_positive": 9,
+      "test_negative": 141,
+      "all_pos_in_all_splits": true,
+      "all_neg_in_all_splits": true,
+      "issues": []
+    }
+  },
+  "fully_trainable_labels": [
+    "Atelectasis",
+    "Consolidation",
+    "Pneumothorax",
+    "Edema",
+    "Pleural Effusion",
+    "Pneumonia",
+    "Cardiomegaly",
+    "Lung Lesion",
+    "Lung Opacity",
+    "Enlarged Cardiomediastinum"
+  ],
+  "partially_masked_labels": [
+    "Fracture"
+  ],
+  "medical_claims": "none"
+}
