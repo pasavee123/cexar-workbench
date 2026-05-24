@@ -1,0 +1,167 @@
+{
+  "phase": "probe_smoke_test",
+  "pipeline_sanity_note": "PIPELINE SANITY ONLY - NOT CLINICAL PERFORMANCE",
+  "config": {
+    "classifier": "sklearn.linear_model.LogisticRegression",
+    "seed": 42,
+    "max_iter": 1000,
+    "train_fraction": 0.8,
+    "train_samples": 79,
+    "eval_samples": 21,
+    "embedding_dim": 768,
+    "device": "cpu"
+  },
+  "per_label_results": {
+    "Atelectasis": {
+      "label": "Atelectasis",
+      "train_positive": 30,
+      "train_negative": 49,
+      "train_total": 79,
+      "eval_positive": 4,
+      "eval_negative": 17,
+      "eval_total": 21,
+      "auroc": 0.7205882352941175,
+      "status": "completed",
+      "reason": ""
+    },
+    "Consolidation": {
+      "label": "Consolidation",
+      "train_positive": 12,
+      "train_negative": 67,
+      "train_total": 79,
+      "eval_positive": 2,
+      "eval_negative": 19,
+      "eval_total": 21,
+      "auroc": 0.8421052631578947,
+      "status": "completed",
+      "reason": ""
+    },
+    "Pneumothorax": {
+      "label": "Pneumothorax",
+      "train_positive": 0,
+      "train_negative": 79,
+      "train_total": 79,
+      "eval_positive": 2,
+      "eval_negative": 19,
+      "eval_total": 21,
+      "auroc": null,
+      "status": "skipped",
+      "reason": "No positive (0) or negative (79) examples in train set"
+    },
+    "Edema": {
+      "label": "Edema",
+      "train_positive": 15,
+      "train_negative": 64,
+      "train_total": 79,
+      "eval_positive": 3,
+      "eval_negative": 18,
+      "eval_total": 21,
+      "auroc": 0.35185185185185186,
+      "status": "completed",
+      "reason": ""
+    },
+    "Pleural Effusion": {
+      "label": "Pleural Effusion",
+      "train_positive": 30,
+      "train_negative": 49,
+      "train_total": 79,
+      "eval_positive": 5,
+      "eval_negative": 16,
+      "eval_total": 21,
+      "auroc": 0.7000000000000001,
+      "status": "completed",
+      "reason": ""
+    },
+    "Pneumonia": {
+      "label": "Pneumonia",
+      "train_positive": 2,
+      "train_negative": 77,
+      "train_total": 79,
+      "eval_positive": 1,
+      "eval_negative": 20,
+      "eval_total": 21,
+      "auroc": 1.0,
+      "status": "completed",
+      "reason": ""
+    },
+    "Cardiomegaly": {
+      "label": "Cardiomegaly",
+      "train_positive": 28,
+      "train_negative": 51,
+      "train_total": 79,
+      "eval_positive": 3,
+      "eval_negative": 18,
+      "eval_total": 21,
+      "auroc": 0.5,
+      "status": "completed",
+      "reason": ""
+    },
+    "Lung Lesion": {
+      "label": "Lung Lesion",
+      "train_positive": 0,
+      "train_negative": 79,
+      "train_total": 79,
+      "eval_positive": 0,
+      "eval_negative": 21,
+      "eval_total": 21,
+      "auroc": null,
+      "status": "skipped",
+      "reason": "No positive (0) or negative (79) examples in train set"
+    },
+    "Fracture": {
+      "label": "Fracture",
+      "train_positive": 0,
+      "train_negative": 79,
+      "train_total": 79,
+      "eval_positive": 0,
+      "eval_negative": 21,
+      "eval_total": 21,
+      "auroc": null,
+      "status": "skipped",
+      "reason": "No positive (0) or negative (79) examples in train set"
+    },
+    "Lung Opacity": {
+      "label": "Lung Opacity",
+      "train_positive": 46,
+      "train_negative": 33,
+      "train_total": 79,
+      "eval_positive": 13,
+      "eval_negative": 8,
+      "eval_total": 21,
+      "auroc": 0.7019230769230769,
+      "status": "completed",
+      "reason": ""
+    },
+    "Enlarged Cardiomediastinum": {
+      "label": "Enlarged Cardiomediastinum",
+      "train_positive": 41,
+      "train_negative": 38,
+      "train_total": 79,
+      "eval_positive": 10,
+      "eval_negative": 11,
+      "eval_total": 21,
+      "auroc": 0.6818181818181818,
+      "status": "completed",
+      "reason": ""
+    }
+  },
+  "summary": {
+    "labels_tested": 8,
+    "labels_skipped": 3,
+    "completed_labels": [
+      "Atelectasis",
+      "Consolidation",
+      "Edema",
+      "Pleural Effusion",
+      "Pneumonia",
+      "Cardiomegaly",
+      "Lung Opacity",
+      "Enlarged Cardiomediastinum"
+    ],
+    "skipped_labels": [
+      "Pneumothorax",
+      "Lung Lesion",
+      "Fracture"
+    ]
+  }
+}

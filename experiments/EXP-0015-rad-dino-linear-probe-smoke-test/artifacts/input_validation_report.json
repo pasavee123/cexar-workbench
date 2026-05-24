@@ -1,0 +1,43 @@
+{
+  "phase": "input_validation",
+  "status": "passed",
+  "checks": [
+    {
+      "check": "manifest_exists",
+      "passed": true
+    },
+    {
+      "check": "embeddings_exists",
+      "passed": true
+    },
+    {
+      "check": "summary_exists",
+      "passed": true
+    },
+    {
+      "check": "manifest_100_rows",
+      "passed": true,
+      "detail": "Got 100 rows, expected 100"
+    },
+    {
+      "check": "manifest_indices_sequential",
+      "passed": true,
+      "detail": "Indices: [0, 1, 2, 3, 4]...[95, 96, 97, 98, 99]"
+    },
+    {
+      "check": "summary_100_attempted_100_succeeded",
+      "passed": true,
+      "detail": "attempted=100, succeeded=100"
+    },
+    {
+      "check": "embeddings_shape_100_768",
+      "passed": true,
+      "detail": "shape=(100, 768)"
+    },
+    {
+      "check": "embedding_indices_align",
+      "passed": true,
+      "detail": "Embedding indices: [0, 1, 2, 3, 4]...[95, 96, 97, 98, 99]"
+    }
+  ]
+}

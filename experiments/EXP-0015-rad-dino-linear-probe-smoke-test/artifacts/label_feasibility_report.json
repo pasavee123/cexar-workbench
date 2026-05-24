@@ -1,0 +1,102 @@
+{
+  "phase": "label_feasibility",
+  "labels": {
+    "Atelectasis": {
+      "positive_count": 34,
+      "negative_count": 66,
+      "missing_count": 0,
+      "usable_for_smoke_training": true,
+      "reason": "Both positive and negative examples present"
+    },
+    "Consolidation": {
+      "positive_count": 14,
+      "negative_count": 86,
+      "missing_count": 0,
+      "usable_for_smoke_training": true,
+      "reason": "Both positive and negative examples present"
+    },
+    "Pneumothorax": {
+      "positive_count": 2,
+      "negative_count": 98,
+      "missing_count": 0,
+      "usable_for_smoke_training": true,
+      "reason": "Both positive and negative examples present"
+    },
+    "Edema": {
+      "positive_count": 18,
+      "negative_count": 82,
+      "missing_count": 0,
+      "usable_for_smoke_training": true,
+      "reason": "Both positive and negative examples present"
+    },
+    "Pleural Effusion": {
+      "positive_count": 35,
+      "negative_count": 65,
+      "missing_count": 0,
+      "usable_for_smoke_training": true,
+      "reason": "Both positive and negative examples present"
+    },
+    "Pneumonia": {
+      "positive_count": 3,
+      "negative_count": 97,
+      "missing_count": 0,
+      "usable_for_smoke_training": true,
+      "reason": "Both positive and negative examples present"
+    },
+    "Cardiomegaly": {
+      "positive_count": 31,
+      "negative_count": 69,
+      "missing_count": 0,
+      "usable_for_smoke_training": true,
+      "reason": "Both positive and negative examples present"
+    },
+    "Lung Lesion": {
+      "positive_count": 0,
+      "negative_count": 100,
+      "missing_count": 0,
+      "usable_for_smoke_training": false,
+      "reason": "No positive examples"
+    },
+    "Fracture": {
+      "positive_count": 0,
+      "negative_count": 100,
+      "missing_count": 0,
+      "usable_for_smoke_training": false,
+      "reason": "No positive examples"
+    },
+    "Lung Opacity": {
+      "positive_count": 59,
+      "negative_count": 41,
+      "missing_count": 0,
+      "usable_for_smoke_training": true,
+      "reason": "Both positive and negative examples present"
+    },
+    "Enlarged Cardiomediastinum": {
+      "positive_count": 51,
+      "negative_count": 49,
+      "missing_count": 0,
+      "usable_for_smoke_training": true,
+      "reason": "Both positive and negative examples present"
+    }
+  },
+  "summary": {
+    "total_labels": 11,
+    "usable_labels": 9,
+    "skipped_labels": 2,
+    "usable_label_names": [
+      "Atelectasis",
+      "Consolidation",
+      "Pneumothorax",
+      "Edema",
+      "Pleural Effusion",
+      "Pneumonia",
+      "Cardiomegaly",
+      "Lung Opacity",
+      "Enlarged Cardiomediastinum"
+    ],
+    "skipped_label_names": [
+      "Lung Lesion",
+      "Fracture"
+    ]
+  }
+}
