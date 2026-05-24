@@ -1,0 +1,76 @@
+experiment_id: EXP-0018
+purpose: cloud_readiness_package
+execution_stage: preparation_only
+
+compute:
+  gpu_target:
+    required: true
+    model: NVIDIA A40
+    memory_gb: 48
+    selection_policy: fixed_by_human
+    runner_may_change_gpu: false
+    fallback_policy: STOP_AND_REQUEST_HUMAN_APPROVAL
+  cpu:
+    min_vcpu: 8
+    recommended_vcpu: 16
+  ram:
+    min_gb: 32
+    recommended_gb: 64
+  disk:
+    min_gb: 200
+    recommended_gb: 500
+    type: ssd
+
+software:
+  os_preference: ubuntu_22_04_lts
+  python:
+    min_version: "3.10"
+    recommended_version: "3.10"
+  cuda:
+    runner_may_select_compatible_version: true
+    required_for_a40: true
+  pytorch:
+    runner_may_select_cuda_build: true
+  packages:
+    required:
+      - torch
+      - torchvision
+      - transformers
+      - pillow
+      - numpy
+      - pandas
+      - scikit-learn
+      - psutil
+      - tqdm
+      - pyyaml
+
+paths:
+  project_root: /workspace/cexar-workbench
+  hf_cache: /workspace/.cache/huggingface
+  data_mount: /mnt/chexpert
+  artifact_root: /workspace/cexar-workbench/experiments/EXP-0019-cloud-smoke-run/artifacts
+
+security:
+  credentials_allowed_in_repo: false
+  ssh_keys_allowed_in_repo: false
+  api_tokens_allowed_in_repo: false
+  dataset_upload_requires_human_approval: true
+  clinical_claims_allowed: false
+  production_integration_allowed: false
+
+runner_decision_scope:
+  may_choose:
+    - python_version
+    - cuda_version
+    - pytorch_cuda_build
+    - disk_size_gb
+    - ram_requirement_gb
+    - hf_cache_path
+    - artifact_output_path
+    - cloud_smoke_sample_size
+  must_not_choose:
+    - gpu_model
+    - clinical_metric_policy
+    - production_integration
+    - dataset_upload_without_approval
+

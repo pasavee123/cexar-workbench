@@ -1,0 +1,21 @@
+{
+  "experiment_id": "EXP-0018",
+  "next_experiment": "EXP-0019-cloud-smoke-run",
+  "readiness_status": "READY_WITH_HUMAN_CLOUD_SELECTION",
+  "fixed_gpu_target": "NVIDIA A40",
+  "runner_may_change_gpu": false,
+  "required_before_exp0019": [
+    "human selects cloud provider with NVIDIA A40 availability",
+    "human provisions credentials outside repository",
+    "human decides dataset transfer or mount strategy",
+    "runner verifies cloud environment without committing secrets"
+  ],
+  "recommended_exp0019_scope": {
+    "sample_size_images": 100,
+    "goal": "cloud environment, GPU, RAD-DINO local/download cache, artifact transfer smoke test",
+    "training": "optional tiny LogisticRegression smoke only after embeddings succeed",
+    "clinical_claims_allowed": false
+  },
+  "blockers": []
+}
+

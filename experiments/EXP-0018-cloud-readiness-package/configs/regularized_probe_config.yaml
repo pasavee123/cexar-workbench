@@ -1,0 +1,40 @@
+experiment_family: rad_dino_regularized_probe
+stage: config_only
+
+input:
+  manifest: experiments/EXP-0016-chexpert-scale-up-readiness/artifacts/candidate_manifest_1k.csv
+  embedding_source: generate_or_load
+  uncertain_label_policy: U-zeros
+
+model:
+  backbone: microsoft/rad-dino
+  backbone_trainable: false
+  probe_type: logistic_regression
+  class_weight: balanced
+  max_iter: 2000
+
+regularization:
+  c_values:
+    - 0.001
+    - 0.003
+    - 0.01
+    - 0.03
+    - 0.1
+    - 0.3
+    - 1.0
+  penalty: l2
+  solver: lbfgs
+  selection_metric: validation_auroc
+
+metrics:
+  compute:
+    - auroc
+    - auprc
+  mask_invalid_splits: true
+  label: RESEARCH PIPELINE METRIC ONLY - NOT CLINICAL PERFORMANCE
+
+output:
+  save_models: false
+  save_metrics_json: true
+  save_seed_summary_json: true
+

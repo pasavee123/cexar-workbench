@@ -1,0 +1,30 @@
+{
+  "experiment_id": "EXP-0018",
+  "target_gpu": "NVIDIA A40",
+  "basis": {
+    "local_exp0017_images": 1000,
+    "local_exp0017_cpu_runtime_seconds": 1161.52,
+    "local_exp0017_cpu_throughput_images_per_second": 0.86
+  },
+  "estimates": {
+    "cloud_a40_1000_images": {
+      "expected_runtime_minutes": "TBD by EXP-0019 smoke run",
+      "purpose": "validate cloud setup"
+    },
+    "cloud_a40_5000_images": {
+      "expected_runtime_minutes": "TBD after A40 smoke measurement",
+      "purpose": "EXP-0020 candidate scale"
+    },
+    "cloud_a40_10_seed_regularized_probe": {
+      "expected_runtime_minutes": "embedding generation dominates; probe sweep expected to be small relative to embeddings",
+      "purpose": "regularization and seed stability"
+    }
+  },
+  "cost_policy": {
+    "record_provider_price_per_hour": true,
+    "record_instance_type": true,
+    "record_wall_clock_runtime": true,
+    "do_not_commit_billing_credentials": true
+  }
+}
+

@@ -1,0 +1,65 @@
+{
+  "experiment_id": "EXP-0018",
+  "audit_type": "manifest_integrity_contract",
+  "source_manifest": "experiments/EXP-0016-chexpert-scale-up-readiness/artifacts/candidate_manifest_1k.csv",
+  "expected_row_count": 1000,
+  "required_columns": [
+    "sample_index",
+    "resolved_path",
+    "patient_id",
+    "source_csv",
+    "csv_row_idx",
+    "Frontal/Lateral",
+    "Atelectasis",
+    "Consolidation",
+    "Pneumothorax",
+    "Edema",
+    "Pleural Effusion",
+    "Pneumonia",
+    "Cardiomegaly",
+    "Lung Lesion",
+    "Fracture",
+    "Lung Opacity",
+    "Enlarged Cardiomediastinum"
+  ],
+  "label_columns": [
+    "Atelectasis",
+    "Consolidation",
+    "Pneumothorax",
+    "Edema",
+    "Pleural Effusion",
+    "Pneumonia",
+    "Cardiomegaly",
+    "Lung Lesion",
+    "Fracture",
+    "Lung Opacity",
+    "Enlarged Cardiomediastinum"
+  ],
+  "patient_integrity": {
+    "patient_id_required": true,
+    "no_patient_overlap_across_splits_required": true
+  },
+  "image_path_policy": {
+    "resolved_path_required": true,
+    "cloud_path_mapping_required": true,
+    "copy_images_into_repo": false
+  },
+  "label_policy": {
+    "uncertain_policy": "U-zeros",
+    "uncertain_value": -1.0,
+    "positive_value": 1.0,
+    "negative_value": 0.0,
+    "missing_policy": "mask_for_label"
+  },
+  "metric_validity": {
+    "min_train_positive": 5,
+    "min_train_negative": 5,
+    "min_validation_positive": 3,
+    "min_validation_negative": 3,
+    "min_test_positive": 3,
+    "min_test_negative": 3,
+    "mask_invalid_label_split_metrics": true
+  },
+  "status": "contract_defined_not_executed"
+}
+

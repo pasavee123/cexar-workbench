@@ -1,0 +1,17 @@
+seed_plan:
+  count: 10
+  seeds:
+    - 11
+    - 23
+    - 37
+    - 42
+    - 59
+    - 71
+    - 83
+    - 97
+    - 109
+    - 131
+  split_policy: patient_level
+  report_mean_std: true
+  report_per_seed: true
+

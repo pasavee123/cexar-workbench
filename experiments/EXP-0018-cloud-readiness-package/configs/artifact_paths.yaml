@@ -1,0 +1,12 @@
+artifact_paths:
+  local_package_root: experiments/EXP-0018-cloud-readiness-package
+  cloud_project_root: /workspace/cexar-workbench
+  exp0019_artifact_root: /workspace/cexar-workbench/experiments/EXP-0019-cloud-smoke-run/artifacts
+  hf_cache: /workspace/.cache/huggingface
+  data_mount: /mnt/chexpert
+  outputs:
+    embeddings: rad_dino_embeddings_cloud_smoke.npz
+    metrics: regularized_probe_metrics.json
+    seed_summary: seed_stability_summary.json
+    runtime: cloud_runtime_report.json
+
