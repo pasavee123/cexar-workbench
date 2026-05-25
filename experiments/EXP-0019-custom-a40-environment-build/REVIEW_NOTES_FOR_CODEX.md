@@ -2,7 +2,7 @@
 
 ## Session Summary
 
-The runner for EXP-0019 completed Phase 0 (Safety checks) and Phase 1 (Static Contract Review) successfully. All 15 static contract items passed verification against `environment_contract.yaml`, the Dockerfile, start.sh, and `requirements.lock.txt`. The experiment was blocked at Phase 2 because the Docker daemon was not running on the Windows runner host.
+The runner for EXP-0019 completed Phase 0 (Safety checks) and Phase 1 (Static Contract Review) successfully. All 15 static contract items passed verification against `environment_contract.yaml`, the Dockerfile, start.sh, and `requirements.lock.txt`. The original local build was blocked because the Windows Docker daemon was not running, but Codex later completed the canonical image build through GitHub Actions.
 
 ## What Codex Should Review
 
@@ -11,18 +11,19 @@ All version pins and runtime behaviors are internally consistent:
 - `environment_contract.yaml` -> `docker/Dockerfile` -> `docker/start.sh` -> `src/verify_environment.py` -> `requirements.lock.txt`
 - No discrepancies found. The image package is correct as spec'd.
 
-### 2. Build Blocked (NO IMAGE PRODUCED)
-- The runner-reserved local build tag `ghcr.io/pasavee123/cexar-a40:cuda121-torch231-c1faf58` was not built.
-- Canonical GHCR output now uses `ghcr.io/pasavee123/cexar-a40`.
-- The installed GitHub Actions workflow will generate new short-SHA and full-SHA tags from the commit that contains the workflow.
-- The `docker build` command template is fully registered in `commands.ps1` (CMD-006).
-- The GitHub Actions workflow is installed at `.github/workflows/build-cexar-a40-image.yml`.
+### 2. Build Completed (IMAGE PRODUCED)
+- Build record ID: `C4HFU6`
+- Duration: 7m12s
+- Short SHA tag: `ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e78`
+- Full SHA tag: `ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717116858`
+- The runner-reserved local build tag `ghcr.io/pasavee123/cexar-a40:cuda121-torch231-c1faf58` was not built and remains historical evidence only.
+- The installed GitHub Actions workflow is `.github/workflows/build-cexar-a40-image.yml`.
 
 ### 3. Next Steps For Codex
 
-- **If using local build:** Codex should wait for the human to start Docker Desktop, then re-issue the CMD-006 build command and continue through Phases 3-5.
-- **If using GitHub Actions:** The workflow is installed at `.github/workflows/build-cexar-a40-image.yml`. The human should trigger it manually from the GitHub Actions tab.
-- **After build succeeds:** Codex should run Phases 3-5 (container verification, GHCR readiness, A40 GPU verification) in the same experiment folder, using the existing ledger.
+- Prepare EXP-0020 using the full SHA image tag.
+- Verify runtime behavior on RunPod A40 before RAD-DINO smoke testing.
+- Confirm `/workspace`, Hugging Face cache, SSH, Python, CUDA, PyTorch, and GPU visibility.
 
 ### 4. No Safety Violations
 - No secrets, SSH keys, PATs, hostnames, or private IPs were written to any file.
@@ -32,5 +33,4 @@ All version pins and runtime behaviors are internally consistent:
 - No RAD-DINO inference, training, or dataset work occurred.
 
 ### 5. Required Follow-Up (from RESULT.md)
-> Human starts Docker Desktop and re-runs EXP-0019 from Phase 2, OR
-> Human triggers the installed GitHub Actions workflow after it has been pushed.
+> Use the full SHA image tag in EXP-0020 and validate it on RunPod A40.

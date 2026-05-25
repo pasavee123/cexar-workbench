@@ -1,10 +1,21 @@
 # FAILURE_REPORT.md
 
-## Final Status: BLOCKED - Docker Daemon Not Running
+## Final Status: RESOLVED INCIDENTS - Final Build Passed Via GitHub Actions
 
-The experiment stopped at Phase 2 (Docker Build Check) because the Docker daemon is unreachable.
+The runner session originally stopped at Phase 2 because the local Windows Docker daemon was unreachable. This blocker was resolved by using the installed GitHub Actions workflow. The final image build completed successfully.
 
-## Failure Details
+## Resolution Evidence
+
+| Field | Value |
+|-------|-------|
+| Successful build system | GitHub Actions |
+| Build record ID | `C4HFU6` |
+| Status | Completed |
+| Duration | 7m12s |
+| Short SHA tag | `ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e78` |
+| Full SHA tag | `ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717116858` |
+
+## Original Local Failure Details
 
 | Field | Value |
 |-------|-------|
@@ -48,13 +59,13 @@ None. No production code, manifests, standards, or repo-hunt files were modified
 
 ## Recommended Next Actions
 
-1. **Human starts Docker Desktop** on the runner host (Windows), then re-run EXP-0019 from Phase 2.
-2. **Alternative: Build on a separate machine** with a running Docker daemon, using the same `docker build` command registered in `commands.ps1`.
-3. **Preferred follow-up: GitHub Actions** - the workflow is installed at `.github/workflows/build-cexar-a40-image.yml` and can be triggered manually from the GitHub Actions tab after this change is pushed.
-4. After a successful build, continue with Phase 3 (container runtime verification) and Phase 5 (A40 GPU check if on RunPod).
+1. Use the full SHA image tag in EXP-0020.
+2. Boot the image on RunPod A40.
+3. Run runtime verification inside the container.
+4. Only after runtime verification passes, proceed to RAD-DINO 100-image GPU smoke testing.
 
 ## Attempt Budget Status
 
-- Docker build attempts: 1 of 3 used. Remaining 2 attempts should not be consumed until the daemon is confirmed running.
+- Docker build attempts: local runner attempt blocked; GitHub Actions build completed successfully.
 - Dependency/version fix attempts: 0 of 2 used. Not needed; contract is clean.
 - Registry/GHCR attempts: 0 of 2 used.

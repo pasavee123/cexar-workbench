@@ -213,3 +213,25 @@ The human proposed trying a GitHub-hosted runner again with the maintained `jlum
 - preserve non-`latest` GHCR tags and the experiment-specific Docker build context
 
 The workflow still avoids `:latest` image tags and does not change the environment contract.
+
+### 2026-05-25 UTC+7 - GitHub Actions build passed
+
+The GitHub Actions build succeeded after applying the free-disk-space fallback path.
+
+Build evidence from the workflow summary:
+
+```text
+Build record ID: C4HFU6
+Status: completed
+Cache: 0%
+Duration: 7m12s
+```
+
+Pushed tags:
+
+```text
+ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e78
+ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717116858
+```
+
+The full SHA tag should be used for EXP-0020 records. No RAD-DINO inference, dataset upload, training, or clinical evaluation occurred in EXP-0019.
