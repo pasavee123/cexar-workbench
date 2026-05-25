@@ -156,7 +156,9 @@ The human selected WarpBuild to avoid further GitHub-hosted runner disk limitati
 Codex updated the workflow to accept a manual `runner_label` input:
 
 ```text
-runner_label = <WarpBuild Runner ID>
+runner_label = arp-ubuntu-latest-x86-64-16x
 ```
 
 This changes only the build runner selection. It does not change the image contract, Dockerfile base image, Python version, CUDA version, PyTorch version, or GHCR tag policy.
+
+The workflow default was updated from `ubuntu-latest` to `arp-ubuntu-latest-x86-64-16x` to reduce accidental reruns on the disk-limited GitHub-hosted runner.

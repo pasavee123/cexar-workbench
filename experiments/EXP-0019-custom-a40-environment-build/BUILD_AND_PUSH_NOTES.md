@@ -30,7 +30,13 @@ Runner selection:
 runner_label = <WarpBuild Runner ID>
 ```
 
-The workflow keeps `ubuntu-latest` as a fallback default, but the preferred build path is to enter the WarpBuild Runner ID provided by the WarpBuild dashboard.
+Default selected runner:
+
+```text
+arp-ubuntu-latest-x86-64-16x
+```
+
+This is the preferred WarpBuild runner for the CeXaR A40 image build. Avoid falling back to `ubuntu-latest` unless intentionally testing the hosted runner failure path.
 
 Expected GHCR tags:
 
