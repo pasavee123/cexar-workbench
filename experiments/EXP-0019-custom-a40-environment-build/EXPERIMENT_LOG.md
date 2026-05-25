@@ -181,6 +181,22 @@ ghcr.io/cexar-lab/cexar-a40
 
 The old runner-reserved local build tag remains documented as historical evidence only. No image was built or pushed under that old tag.
 
+### 2026-05-25 UTC+7 - Repository path restored to personal repo
+
+The human restored the active repository location to:
+
+```text
+pasavee123/cexar-workbench
+```
+
+Codex updated canonical GHCR package references back to:
+
+```text
+ghcr.io/pasavee123/cexar-a40
+```
+
+Local `origin` was also reset to `https://github.com/pasavee123/cexar-workbench.git`.
+
 ### 2026-05-25 UTC+7 - GitHub hosted free-disk-space fallback selected
 
 WarpBuild runner routing remained stuck at:

@@ -101,6 +101,18 @@ None. No new files were created during this run.
 | `REVIEW_NOTES_FOR_CODEX.md` | Updated | Documented canonical GHCR output owner. |
 | `EXPERIMENT_LOG.md` | Updated | Recorded repository migration alignment. |
 
+## Codex Repository Path Restore
+
+| File | Type of Change | Summary |
+|------|---------------|---------|
+| `.github/workflows/build-cexar-a40-image.yml` | Updated | Restored canonical image owner/source to `pasavee123`. |
+| `BUILD_AND_PUSH_NOTES.md` | Updated | Restored expected GHCR tags to `ghcr.io/pasavee123/cexar-a40`. |
+| `TEST_PLAN.md` | Updated | Restored image tag pattern to `ghcr.io/pasavee123/cexar-a40`. |
+| `RUNPOD_TEMPLATE_NOTES.md` | Updated | Restored RunPod image tag pattern to personal package path. |
+| `RESULT.md` | Updated | Restored current canonical GHCR path. |
+| `REVIEW_NOTES_FOR_CODEX.md` | Updated | Restored canonical GHCR output owner. |
+| `EXPERIMENT_LOG.md` | Updated | Recorded repository path restore. |
+
 ## Files NOT Modified
 
 | File | Reason |

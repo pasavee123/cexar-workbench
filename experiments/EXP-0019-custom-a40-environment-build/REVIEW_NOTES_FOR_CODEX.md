@@ -12,8 +12,8 @@ All version pins and runtime behaviors are internally consistent:
 - No discrepancies found. The image package is correct as spec'd.
 
 ### 2. Build Blocked (NO IMAGE PRODUCED)
-- The runner-reserved local build tag `ghcr.io/pasavee123/cexar-a40:cuda121-torch231-c1faf58` was not built and is superseded by the migrated organization package path.
-- Canonical GHCR output now uses `ghcr.io/cexar-lab/cexar-a40`.
+- The runner-reserved local build tag `ghcr.io/pasavee123/cexar-a40:cuda121-torch231-c1faf58` was not built.
+- Canonical GHCR output now uses `ghcr.io/pasavee123/cexar-a40`.
 - The installed GitHub Actions workflow will generate new short-SHA and full-SHA tags from the commit that contains the workflow.
 - The `docker build` command template is fully registered in `commands.ps1` (CMD-006).
 - The GitHub Actions workflow is installed at `.github/workflows/build-cexar-a40-image.yml`.

@@ -49,8 +49,8 @@ WarpBuild official runner tags use `x64` in the tag name, not `x86-64`.
 Expected GHCR tags:
 
 ```text
-ghcr.io/cexar-lab/cexar-a40:cuda121-torch231-<short_sha>
-ghcr.io/cexar-lab/cexar-a40:cuda121-torch231-<full_sha>
+ghcr.io/pasavee123/cexar-a40:cuda121-torch231-<short_sha>
+ghcr.io/pasavee123/cexar-a40:cuda121-torch231-<full_sha>
 ```
 
 Use the full SHA tag in experiment records when possible.
@@ -63,7 +63,7 @@ Register exact commands in `commands.ps1` before executing.
 docker buildx build \
   --platform linux/amd64 \
   -f experiments/EXP-0019-custom-a40-environment-build/docker/Dockerfile \
-  -t ghcr.io/cexar-lab/cexar-a40:cuda121-torch231-<gitsha> \
+  -t ghcr.io/pasavee123/cexar-a40:cuda121-torch231-<gitsha> \
   experiments/EXP-0019-custom-a40-environment-build
 ```
 
@@ -72,7 +72,7 @@ docker buildx build \
 Only push after human approval and registry authentication.
 
 ```bash
-docker push ghcr.io/cexar-lab/cexar-a40:cuda121-torch231-<gitsha>
+docker push ghcr.io/pasavee123/cexar-a40:cuda121-torch231-<gitsha>
 ```
 
 ## GitHub Actions Workflow

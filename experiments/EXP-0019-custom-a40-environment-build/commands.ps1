@@ -48,7 +48,7 @@
 # Working directory: D:\cexar-workbench
 # Destructive: No (creates a Docker image, does not modify repo files)
 # Image tag: ghcr.io/pasavee123/cexar-a40:cuda121-torch231-c1faf58
-# Note: This was the runner-reserved tag before repository migration. Canonical GitHub Actions output now uses ghcr.io/cexar-lab/cexar-a40.
+# Note: This runner-reserved tag is again aligned with the current canonical personal repository path.
 # Result: Exit code 1. Docker daemon not running. Error: "Head http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/_ping: The system cannot find the file specified."
 
 # CMD-007 : Get-Process "Docker Desktop"

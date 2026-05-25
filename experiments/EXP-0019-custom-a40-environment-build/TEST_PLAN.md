@@ -57,7 +57,7 @@ Build target image as `linux/amd64`.
 Suggested tag pattern:
 
 ```text
-ghcr.io/cexar-lab/cexar-a40:cuda121-torch231-<gitsha>
+ghcr.io/pasavee123/cexar-a40:cuda121-torch231-<gitsha>
 ```
 
 Do not use `latest` as the canonical experiment tag.
