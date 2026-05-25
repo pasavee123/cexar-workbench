@@ -136,3 +136,15 @@ This occurred during the `torch==2.3.1` and `torchvision==0.18.1` install layer.
 - Dockerfile pip cleanup: `PIP_NO_CACHE_DIR=1`, `PIP_DISABLE_PIP_VERSION_CHECK=1`, and removal of `/tmp`, `/var/tmp`, and pip cache after each Python install layer.
 
 CUDA, Python, PyTorch, torchvision, and base image targets remain unchanged.
+
+### 2026-05-25 UTC+7 - Second no-space build failure mitigation
+
+The next GitHub Actions attempt still reported:
+
+```text
+ERROR: Could not install packages due to an OSError: [Errno 28] No space left on device
+```
+
+The repeated failure suggests that cleanup alone is insufficient because Docker build layers are being stored on the default Docker root filesystem. Codex updated the workflow to move Docker's data root to `/mnt/docker` before the build.
+
+This keeps the CUDA/PyTorch contract unchanged while giving BuildKit more working space for large base image layers and PyTorch wheels.

@@ -61,4 +61,6 @@ It is manual-only (`workflow_dispatch`) to prevent unplanned large image builds 
 
 The workflow frees unused GitHub-hosted runner disk space before building because CUDA devel images and PyTorch wheels are large. It also removes swap and hosted tool caches to reduce the chance of `No space left on device` during the PyTorch install layer.
 
+The workflow also moves Docker's data root to `/mnt/docker` before the build. GitHub-hosted runners often have more usable space on `/mnt` than on the default Docker root filesystem, and CUDA devel image layers plus PyTorch wheels can exceed the default root volume.
+
 If GHCR push fails, check repository Actions permissions and package permissions before changing the Dockerfile.

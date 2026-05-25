@@ -52,6 +52,19 @@ jobs:
           echo "Disk after cleanup:"
           df -h
 
+      - name: Move Docker data root to larger /mnt volume
+        shell: bash
+        run: |
+          echo "Docker root before move:"
+          docker info --format '{{.DockerRootDir}}' || true
+          sudo mkdir -p /mnt/docker
+          echo '{"data-root":"/mnt/docker"}' | sudo tee /etc/docker/daemon.json
+          sudo systemctl restart docker
+          echo "Docker root after move:"
+          docker info --format '{{.DockerRootDir}}'
+          echo "Disk after Docker root move:"
+          df -h
+
       - name: Log in to GHCR
         uses: docker/login-action@v3
         with:

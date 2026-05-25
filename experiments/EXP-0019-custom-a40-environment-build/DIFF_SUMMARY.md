@@ -49,6 +49,14 @@ None. No new files were created during this run.
 | `BUILD_AND_PUSH_NOTES.md` | Updated | Documented the no-space mitigation. |
 | `EXPERIMENT_LOG.md` | Updated | Recorded the `Errno 28` failure and mitigation. |
 
+## Codex Docker Root Relocation Mitigation
+
+| File | Type of Change | Summary |
+|------|---------------|---------|
+| `.github/workflows/build-cexar-a40-image.yml` | Updated | Moved Docker data root to `/mnt/docker` before the build to avoid root filesystem exhaustion. |
+| `BUILD_AND_PUSH_NOTES.md` | Updated | Documented `/mnt/docker` rationale. |
+| `EXPERIMENT_LOG.md` | Updated | Recorded second no-space failure and Docker root relocation mitigation. |
+
 ## Files NOT Modified
 
 | File | Reason |
