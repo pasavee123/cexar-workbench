@@ -40,6 +40,15 @@ None. No new files were created during this run.
 | `BUILD_AND_PUSH_NOTES.md` | Updated | Documented disk cleanup rationale for large CUDA/PyTorch build. |
 | `EXPERIMENT_LOG.md` | Updated | Recorded first GitHub Actions build failure and workflow-level mitigation. |
 
+## Codex No-Space Build Mitigation
+
+| File | Type of Change | Summary |
+|------|---------------|---------|
+| `.github/workflows/build-cexar-a40-image.yml` | Updated | Expanded disk cleanup to remove swap, hosted tool cache, Android, .NET, GHC, Boost, ghcup, and apt lists before build. |
+| `docker/Dockerfile` | Updated | Added pip no-cache environment settings and cleanup of temporary/cache directories after install layers. |
+| `BUILD_AND_PUSH_NOTES.md` | Updated | Documented the no-space mitigation. |
+| `EXPERIMENT_LOG.md` | Updated | Recorded the `Errno 28` failure and mitigation. |
+
 ## Files NOT Modified
 
 | File | Reason |

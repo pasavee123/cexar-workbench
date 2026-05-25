@@ -121,3 +121,18 @@ Codex updated the workflow to:
 - disable provenance output for this large image build
 
 No Dockerfile version pins were changed.
+
+### 2026-05-25 UTC+7 - No-space build failure mitigation
+
+The subsequent GitHub Actions build reported:
+
+```text
+OSError: [Errno 28] No space left on device
+```
+
+This occurred during the `torch==2.3.1` and `torchvision==0.18.1` install layer. Codex applied a space mitigation without changing the CUDA/PyTorch contract:
+
+- More aggressive GitHub runner cleanup: swapfile, hosted tool cache, Android, .NET, GHC, Boost, ghcup, apt lists.
+- Dockerfile pip cleanup: `PIP_NO_CACHE_DIR=1`, `PIP_DISABLE_PIP_VERSION_CHECK=1`, and removal of `/tmp`, `/var/tmp`, and pip cache after each Python install layer.
+
+CUDA, Python, PyTorch, torchvision, and base image targets remain unchanged.

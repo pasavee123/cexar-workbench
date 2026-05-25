@@ -37,10 +37,17 @@ jobs:
         run: |
           echo "Disk before cleanup:"
           df -h
+          sudo swapoff -a || true
+          sudo rm -f /mnt/swapfile || true
           sudo rm -rf /usr/share/dotnet
           sudo rm -rf /usr/local/lib/android
+          sudo rm -rf /usr/local/share/boost
+          sudo rm -rf /usr/local/.ghcup
           sudo rm -rf /opt/ghc
           sudo rm -rf /opt/hostedtoolcache/CodeQL
+          sudo rm -rf "${AGENT_TOOLSDIRECTORY:-/opt/hostedtoolcache}"
+          sudo apt-get clean
+          sudo rm -rf /var/lib/apt/lists/*
           docker system prune -af || true
           echo "Disk after cleanup:"
           df -h
