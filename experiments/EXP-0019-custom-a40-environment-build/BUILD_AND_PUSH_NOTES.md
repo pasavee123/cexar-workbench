@@ -33,10 +33,16 @@ runner_label = <WarpBuild Runner ID>
 Default selected runner:
 
 ```text
-warp-ubuntu-latest-x64-16x
+ubuntu-latest
 ```
 
-This is the preferred WarpBuild runner for the CeXaR A40 image build. Avoid falling back to `ubuntu-latest` unless intentionally testing the hosted runner failure path.
+This default is intentionally set back to GitHub-hosted `ubuntu-latest` for the free-disk-space fallback attempt.
+
+If WarpBuild is working, override `runner_label` manually with:
+
+```text
+warp-ubuntu-latest-x64-16x
+```
 
 WarpBuild official runner tags use `x64` in the tag name, not `x86-64`.
 
@@ -75,7 +81,7 @@ The workflow has been installed at `.github/workflows/build-cexar-a40-image.yml`
 
 It is manual-only (`workflow_dispatch`) to prevent unplanned large image builds on every push.
 
-The workflow frees unused GitHub-hosted runner disk space before building because CUDA devel images and PyTorch wheels are large. It also removes swap and hosted tool caches to reduce the chance of `No space left on device` during the PyTorch install layer.
+The workflow first uses `jlumbroso/free-disk-space@v1.3.1`, then performs additional manual cleanup before building because CUDA devel images and PyTorch wheels are large. It removes swap, hosted tool caches, Android, .NET, Haskell, and large packages to reduce the chance of `No space left on device` during the PyTorch install layer.
 
 The workflow also moves Docker's data root to `/mnt/docker` before the build. GitHub-hosted runners often have more usable space on `/mnt` than on the default Docker root filesystem, and CUDA devel image layers plus PyTorch wheels can exceed the default root volume.
 

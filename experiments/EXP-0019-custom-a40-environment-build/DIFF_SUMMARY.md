@@ -81,6 +81,14 @@ None. No new files were created during this run.
 | `BUILD_AND_PUSH_NOTES.md` | Updated | Documented WarpBuild's `x64` tag convention. |
 | `EXPERIMENT_LOG.md` | Updated | Recorded official runner tag correction. |
 
+## Codex GitHub Hosted Free-Disk Fallback
+
+| File | Type of Change | Summary |
+|------|---------------|---------|
+| `.github/workflows/build-cexar-a40-image.yml` | Updated | Default runner restored to `ubuntu-latest` and `jlumbroso/free-disk-space@v1.3.1` added before checkout. |
+| `BUILD_AND_PUSH_NOTES.md` | Updated | Documented GitHub-hosted free-disk-space fallback and WarpBuild override option. |
+| `EXPERIMENT_LOG.md` | Updated | Recorded fallback rationale after WarpBuild runner routing remained queued. |
+
 ## Codex Repository Migration Alignment
 
 | File | Type of Change | Summary |

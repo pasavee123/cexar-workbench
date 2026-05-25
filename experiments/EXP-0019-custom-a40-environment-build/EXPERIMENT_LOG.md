@@ -180,3 +180,20 @@ ghcr.io/cexar-lab/cexar-a40
 ```
 
 The old runner-reserved local build tag remains documented as historical evidence only. No image was built or pushed under that old tag.
+
+### 2026-05-25 UTC+7 - GitHub hosted free-disk-space fallback selected
+
+WarpBuild runner routing remained stuck at:
+
+```text
+Waiting for a runner to pick up this job...
+```
+
+The human proposed trying a GitHub-hosted runner again with the maintained `jlumbroso/free-disk-space@v1.3.1` action. Codex updated the workflow to:
+
+- default `runner_label` back to `ubuntu-latest`
+- run `jlumbroso/free-disk-space@v1.3.1` before checkout
+- preserve the existing manual cleanup and `/mnt/docker` data-root relocation
+- preserve non-`latest` GHCR tags and the experiment-specific Docker build context
+
+The workflow still avoids `:latest` image tags and does not change the environment contract.
