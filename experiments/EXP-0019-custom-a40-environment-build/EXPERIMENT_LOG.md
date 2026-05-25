@@ -156,12 +156,14 @@ The human selected WarpBuild to avoid further GitHub-hosted runner disk limitati
 Codex updated the workflow to accept a manual `runner_label` input:
 
 ```text
-runner_label = warp-ubuntu-latest-x86-64-16x
+runner_label = warp-ubuntu-latest-x64-16x
 ```
 
 This changes only the build runner selection. It does not change the image contract, Dockerfile base image, Python version, CUDA version, PyTorch version, or GHCR tag policy.
 
-The workflow default was updated from `ubuntu-latest` to `warp-ubuntu-latest-x86-64-16x` to reduce accidental reruns on the disk-limited GitHub-hosted runner.
+The workflow default was updated from `ubuntu-latest` to `warp-ubuntu-latest-x64-16x` to reduce accidental reruns on the disk-limited GitHub-hosted runner.
+
+Codex corrected the runner tag to match WarpBuild's official naming convention: `x64`, not `x86-64`.
 
 ### 2026-05-25 UTC+7 - Repository organization migration alignment
 

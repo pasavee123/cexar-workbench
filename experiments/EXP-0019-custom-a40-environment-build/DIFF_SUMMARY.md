@@ -69,9 +69,17 @@ None. No new files were created during this run.
 
 | File | Type of Change | Summary |
 |------|---------------|---------|
-| `.github/workflows/build-cexar-a40-image.yml` | Updated | Default `runner_label` set to `warp-ubuntu-latest-x86-64-16x`. |
+| `.github/workflows/build-cexar-a40-image.yml` | Updated | Default `runner_label` set to `warp-ubuntu-latest-x64-16x`. |
 | `BUILD_AND_PUSH_NOTES.md` | Updated | Documented selected WarpBuild default runner. |
 | `EXPERIMENT_LOG.md` | Updated | Recorded default runner change from `ubuntu-latest` to WarpBuild. |
+
+## Codex WarpBuild Official Tag Correction
+
+| File | Type of Change | Summary |
+|------|---------------|---------|
+| `.github/workflows/build-cexar-a40-image.yml` | Updated | Corrected runner label from `warp-ubuntu-latest-x86-64-16x` to official `warp-ubuntu-latest-x64-16x`. |
+| `BUILD_AND_PUSH_NOTES.md` | Updated | Documented WarpBuild's `x64` tag convention. |
+| `EXPERIMENT_LOG.md` | Updated | Recorded official runner tag correction. |
 
 ## Codex Repository Migration Alignment
 

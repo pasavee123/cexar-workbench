@@ -33,10 +33,12 @@ runner_label = <WarpBuild Runner ID>
 Default selected runner:
 
 ```text
-warp-ubuntu-latest-x86-64-16x
+warp-ubuntu-latest-x64-16x
 ```
 
 This is the preferred WarpBuild runner for the CeXaR A40 image build. Avoid falling back to `ubuntu-latest` unless intentionally testing the hosted runner failure path.
+
+WarpBuild official runner tags use `x64` in the tag name, not `x86-64`.
 
 Expected GHCR tags:
 
