@@ -1,0 +1,41 @@
+experiment_id: EXP-0020
+purpose: runpod_a40_runtime_rad_dino_smoke
+execution_stage: runtime_and_embedding_smoke_only
+
+image:
+  required_tag: ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717116858
+  source_experiment: EXP-0019-custom-a40-environment-build
+
+compute:
+  gpu:
+    required: true
+    model: NVIDIA A40
+    runner_may_change_gpu: false
+  cuda_required: true
+
+paths:
+  project_root: /workspace/cexar-workbench
+  workspace: /workspace
+  dataset_mount: /mnt/chexpert
+  dataset_archive_root: /mnt/chexpert/archive
+  hf_home: /workspace/.cache/huggingface
+  torch_home: /workspace/.cache/torch
+  manifest: experiments/EXP-0016-chexpert-scale-up-readiness/artifacts/candidate_manifest_1k.csv
+  output_dir: experiments/EXP-0020-runpod-a40-runtime-rad-dino-smoke/artifacts
+
+rad_dino:
+  model_id: microsoft/rad-dino
+  sample_size: 100
+  expected_embedding_shape: [100, 768]
+  device: cuda_only
+
+forbidden_actions:
+  - model_training
+  - classifier_training
+  - auroc_calculation
+  - auprc_calculation
+  - clinical_claims
+  - production_integration
+  - dataset_upload_without_human_approval
+  - writing_secrets_to_repo
+

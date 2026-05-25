@@ -1,0 +1,14 @@
+image_tag: ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717116858
+model_id: microsoft/rad-dino
+sample_size: 100
+expected_gpu: NVIDIA A40
+expected_embedding_dim: 768
+manifest_path: experiments/EXP-0016-chexpert-scale-up-readiness/artifacts/candidate_manifest_1k.csv
+windows_dataset_prefix: "D:\\Dataset_Chexpert"
+cloud_dataset_prefix: /mnt/chexpert
+output_summary: experiments/EXP-0020-runpod-a40-runtime-rad-dino-smoke/artifacts/rad_dino_cloud_smoke_summary.json
+output_embeddings: experiments/EXP-0020-runpod-a40-runtime-rad-dino-smoke/artifacts/rad_dino_cloud_smoke_embeddings.npz
+medical_claims_allowed: false
+metrics_allowed: false
+training_allowed: false
+
