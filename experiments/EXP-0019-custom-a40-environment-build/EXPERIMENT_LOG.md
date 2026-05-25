@@ -104,3 +104,20 @@ Changes made after runner completion:
 - Corrected minor documentation inconsistencies and non-ASCII dash/arrow rendering issues.
 
 No Docker build, GHCR push, RAD-DINO inference, dataset upload, training, or production integration was performed by Codex during this update.
+
+### 2026-05-25 UTC+7 - GitHub Actions build failure follow-up
+
+The first GitHub Actions build failed during the PyTorch install layer:
+
+```text
+pip install --no-cache-dir --index-url https://download.pytorch.org/whl/cu121 torch==2.3.1 torchvision==0.18.1
+```
+
+The official PyTorch previous-versions install command for CUDA 12.1 uses this same torch/torchvision version pair and index URL, so the version contract was not changed.
+
+Codex updated the workflow to:
+- free unused GitHub-hosted runner disk space before Docker build
+- request plain BuildKit progress logs
+- disable provenance output for this large image build
+
+No Dockerfile version pins were changed.

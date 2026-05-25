@@ -32,6 +32,14 @@ None. No new files were created during this run.
 | `commands.ps1` | Corrected | Clarified CMD-004 was non-conclusive after CMD-006 proved daemon unreachable. |
 | `FAILURE_REPORT.md` | Corrected | Replaced non-ASCII dash rendering with plain ASCII text. |
 
+## Codex Post-Review Workflow Fix
+
+| File | Type of Change | Summary |
+|------|---------------|---------|
+| `.github/workflows/build-cexar-a40-image.yml` | Updated | Added disk cleanup before CUDA image build, plain BuildKit logs, and disabled provenance output. |
+| `BUILD_AND_PUSH_NOTES.md` | Updated | Documented disk cleanup rationale for large CUDA/PyTorch build. |
+| `EXPERIMENT_LOG.md` | Updated | Recorded first GitHub Actions build failure and workflow-level mitigation. |
+
 ## Files NOT Modified
 
 | File | Reason |

@@ -59,4 +59,6 @@ The workflow has been installed at `.github/workflows/build-cexar-a40-image.yml`
 
 It is manual-only (`workflow_dispatch`) to prevent unplanned large image builds on every push.
 
+The workflow frees unused GitHub-hosted runner disk space before building because CUDA devel images and PyTorch wheels are large.
+
 If GHCR push fails, check repository Actions permissions and package permissions before changing the Dockerfile.
