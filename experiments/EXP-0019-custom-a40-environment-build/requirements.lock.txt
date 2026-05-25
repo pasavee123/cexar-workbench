@@ -1,0 +1,14 @@
+# CeXaR EXP-0019 Python dependency lock
+# Torch and torchvision are installed separately from the PyTorch cu121 wheel index.
+
+transformers==4.41.2
+pillow==10.4.0
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
+psutil==6.0.0
+tqdm==4.66.4
+pyyaml==6.0.2
+safetensors==0.4.3
+huggingface-hub==0.23.4
+

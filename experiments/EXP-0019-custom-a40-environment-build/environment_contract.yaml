@@ -1,0 +1,69 @@
+experiment_id: EXP-0019
+purpose: custom_a40_environment_build
+execution_stage: environment_build_only
+
+compute:
+  gpu_target:
+    model: NVIDIA A40
+    memory_gb: 48
+    runner_may_change_gpu: false
+  runpod_host_driver:
+    minimum_policy: ">= 550.xx"
+    verification_command: "nvidia-smi"
+
+image:
+  registry_preference: ghcr
+  canonical_tag_policy: git_sha_tag_required
+  latest_tag_allowed_for_experiment: false
+  architecture: linux/amd64
+  base_image: nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04
+
+software:
+  os: ubuntu_22_04
+  python:
+    version: "3.10"
+    install_method: apt_python3_plus_venv
+    venv_path: /opt/venv
+  cuda:
+    version: "12.1.1"
+    cudnn: "8"
+  pytorch:
+    torch: "2.3.1+cu121"
+    torchvision: "0.18.1+cu121"
+    install_method: pip_index_url
+    index_url: https://download.pytorch.org/whl/cu121
+
+runtime:
+  pod_type: interactive
+  serverless: false
+  ssh_required: true
+  vscode_remote_ssh_required: true
+  jupyter_required: false
+  auto_run_experiment_on_startup: false
+  keepalive: sleep_infinity
+  exposed_ports:
+    - "22/tcp"
+
+paths:
+  workspace: /workspace
+  hf_home: /workspace/.cache/huggingface
+  transformers_cache: /workspace/.cache/huggingface/transformers
+  torch_home: /workspace/.cache/torch
+
+security:
+  credentials_allowed_in_repo: false
+  ssh_keys_allowed_in_repo: false
+  api_tokens_allowed_in_repo: false
+  private_hostnames_allowed_in_repo: false
+  private_ips_allowed_in_repo: false
+  ghcr_public_image_preferred_for_first_pull: true
+
+forbidden_actions:
+  - rad_dino_inference
+  - dataset_upload
+  - model_training
+  - clinical_metric_evaluation
+  - production_integration
+  - global_python_modification
+  - unlogged_cleanup
+

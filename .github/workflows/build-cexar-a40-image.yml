@@ -1,0 +1,68 @@
+name: build-cexar-a40-image
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE_NAME: ghcr.io/pasavee123/cexar-a40
+  IMAGE_TAG_PREFIX: cuda121-torch231
+  EXPERIMENT_DIR: experiments/EXP-0019-custom-a40-environment-build
+
+jobs:
+  build-and-push:
+    name: Build and push CeXaR A40 image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set image tag
+        id: image
+        shell: bash
+        run: |
+          SHORT_SHA="${GITHUB_SHA::7}"
+          echo "tag=${IMAGE_NAME}:${IMAGE_TAG_PREFIX}-${SHORT_SHA}" >> "${GITHUB_OUTPUT}"
+          echo "full_sha_tag=${IMAGE_NAME}:${IMAGE_TAG_PREFIX}-${GITHUB_SHA}" >> "${GITHUB_OUTPUT}"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push linux/amd64 image
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ env.EXPERIMENT_DIR }}
+          file: ${{ env.EXPERIMENT_DIR }}/docker/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ steps.image.outputs.tag }}
+            ${{ steps.image.outputs.full_sha_tag }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/pasavee123/cexar-workbench
+            org.opencontainers.image.description=CeXaR reproducible A40 research environment, CUDA 12.1, PyTorch 2.3.1 cu121
+            org.opencontainers.image.revision=${{ github.sha }}
+
+      - name: Write image summary
+        shell: bash
+        run: |
+          {
+            echo "## CeXaR A40 image build"
+            echo ""
+            echo "Pushed tags:"
+            echo "- \`${{ steps.image.outputs.tag }}\`"
+            echo "- \`${{ steps.image.outputs.full_sha_tag }}\`"
+            echo ""
+            echo "Use the full SHA tag for experiment records when possible."
+          } >> "${GITHUB_STEP_SUMMARY}"
