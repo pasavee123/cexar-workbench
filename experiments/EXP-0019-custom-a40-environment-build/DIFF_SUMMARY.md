@@ -73,6 +73,18 @@ None. No new files were created during this run.
 | `BUILD_AND_PUSH_NOTES.md` | Updated | Documented selected WarpBuild default runner. |
 | `EXPERIMENT_LOG.md` | Updated | Recorded default runner change from `ubuntu-latest` to WarpBuild. |
 
+## Codex Repository Migration Alignment
+
+| File | Type of Change | Summary |
+|------|---------------|---------|
+| `.github/workflows/build-cexar-a40-image.yml` | Updated | Changed canonical image source/package owner to `cexar-lab`. |
+| `BUILD_AND_PUSH_NOTES.md` | Updated | Updated expected GHCR tags to `ghcr.io/cexar-lab/cexar-a40`. |
+| `TEST_PLAN.md` | Updated | Updated image tag pattern to `ghcr.io/cexar-lab/cexar-a40`. |
+| `RUNPOD_TEMPLATE_NOTES.md` | Updated | Updated RunPod image tag pattern to organization package path. |
+| `RESULT.md` | Updated | Marked old personal GHCR tag as historical and superseded. |
+| `REVIEW_NOTES_FOR_CODEX.md` | Updated | Documented canonical GHCR output owner. |
+| `EXPERIMENT_LOG.md` | Updated | Recorded repository migration alignment. |
+
 ## Files NOT Modified
 
 | File | Reason |

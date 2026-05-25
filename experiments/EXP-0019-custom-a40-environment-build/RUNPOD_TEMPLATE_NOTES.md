@@ -11,7 +11,7 @@ Use the immutable GHCR image produced from this experiment.
 Preferred tag form:
 
 ```text
-ghcr.io/pasavee123/cexar-a40:cuda121-torch231-<gitsha>
+ghcr.io/cexar-lab/cexar-a40:cuda121-torch231-<gitsha>
 ```
 
 Do not use `latest` as the experiment image tag.

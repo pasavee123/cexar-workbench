@@ -37,7 +37,7 @@ EXP-0019 completed Phase 0 (Safety and Ledger) and Phase 1 (Static Contract Revi
 ghcr.io/pasavee123/cexar-a40:cuda121-torch231-c1faf58
 ```
 
-This tag has NOT been built or pushed. The GitHub Actions workflow will produce new short-SHA and full-SHA tags from the commit that contains the workflow.
+This tag has NOT been built or pushed. It was reserved before repository migration. The GitHub Actions workflow now produces new short-SHA and full-SHA tags under `ghcr.io/cexar-lab/cexar-a40`.
 
 ## Limitations
 

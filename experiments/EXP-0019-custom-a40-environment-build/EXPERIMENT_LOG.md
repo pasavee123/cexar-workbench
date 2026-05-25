@@ -162,3 +162,19 @@ runner_label = warp-ubuntu-latest-x86-64-16x
 This changes only the build runner selection. It does not change the image contract, Dockerfile base image, Python version, CUDA version, PyTorch version, or GHCR tag policy.
 
 The workflow default was updated from `ubuntu-latest` to `warp-ubuntu-latest-x86-64-16x` to reduce accidental reruns on the disk-limited GitHub-hosted runner.
+
+### 2026-05-25 UTC+7 - Repository organization migration alignment
+
+The human confirmed the active repository for WarpBuild is:
+
+```text
+cexar-lab/cexar-workbench
+```
+
+Codex updated canonical GHCR package references from `ghcr.io/pasavee123/cexar-a40` to:
+
+```text
+ghcr.io/cexar-lab/cexar-a40
+```
+
+The old runner-reserved local build tag remains documented as historical evidence only. No image was built or pushed under that old tag.

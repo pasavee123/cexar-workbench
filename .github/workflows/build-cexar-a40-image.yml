@@ -14,7 +14,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ghcr.io/pasavee123/cexar-a40
+  IMAGE_NAME: ghcr.io/cexar-lab/cexar-a40
   IMAGE_TAG_PREFIX: cuda121-torch231
   EXPERIMENT_DIR: experiments/EXP-0019-custom-a40-environment-build
 
@@ -92,7 +92,7 @@ jobs:
             ${{ steps.image.outputs.tag }}
             ${{ steps.image.outputs.full_sha_tag }}
           labels: |
-            org.opencontainers.image.source=https://github.com/pasavee123/cexar-workbench
+            org.opencontainers.image.source=https://github.com/cexar-lab/cexar-workbench
             org.opencontainers.image.description=CeXaR reproducible A40 research environment, CUDA 12.1, PyTorch 2.3.1 cu121
             org.opencontainers.image.revision=${{ github.sha }}
 

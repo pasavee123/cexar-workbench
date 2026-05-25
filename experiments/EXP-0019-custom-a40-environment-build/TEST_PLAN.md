@@ -57,7 +57,7 @@ Build target image as `linux/amd64`.
 Suggested tag pattern:
 
 ```text
-ghcr.io/pasavee123/cexar-a40:cuda121-torch231-<gitsha>
+ghcr.io/cexar-lab/cexar-a40:cuda121-torch231-<gitsha>
 ```
 
 Do not use `latest` as the canonical experiment tag.
@@ -116,4 +116,3 @@ Stop and write `FAILURE_REPORT.md` if:
 - GHCR push needs credentials not already approved by the human.
 - SSH key, token, hostname, or PAT would be written into repo files.
 - The image cannot be built or verified after 3 focused attempts.
-
