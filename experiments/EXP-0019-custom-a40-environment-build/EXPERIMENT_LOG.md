@@ -148,3 +148,15 @@ ERROR: Could not install packages due to an OSError: [Errno 28] No space left on
 The repeated failure suggests that cleanup alone is insufficient because Docker build layers are being stored on the default Docker root filesystem. Codex updated the workflow to move Docker's data root to `/mnt/docker` before the build.
 
 This keeps the CUDA/PyTorch contract unchanged while giving BuildKit more working space for large base image layers and PyTorch wheels.
+
+### 2026-05-25 UTC+7 - WarpBuild runner path selected
+
+The human selected WarpBuild to avoid further GitHub-hosted runner disk limitations while preserving clean build logs.
+
+Codex updated the workflow to accept a manual `runner_label` input:
+
+```text
+runner_label = <WarpBuild Runner ID>
+```
+
+This changes only the build runner selection. It does not change the image contract, Dockerfile base image, Python version, CUDA version, PyTorch version, or GHCR tag policy.

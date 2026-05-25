@@ -24,6 +24,14 @@ Manual trigger:
 GitHub repository -> Actions -> build-cexar-a40-image -> Run workflow
 ```
 
+Runner selection:
+
+```text
+runner_label = <WarpBuild Runner ID>
+```
+
+The workflow keeps `ubuntu-latest` as a fallback default, but the preferred build path is to enter the WarpBuild Runner ID provided by the WarpBuild dashboard.
+
 Expected GHCR tags:
 
 ```text
@@ -62,5 +70,7 @@ It is manual-only (`workflow_dispatch`) to prevent unplanned large image builds 
 The workflow frees unused GitHub-hosted runner disk space before building because CUDA devel images and PyTorch wheels are large. It also removes swap and hosted tool caches to reduce the chance of `No space left on device` during the PyTorch install layer.
 
 The workflow also moves Docker's data root to `/mnt/docker` before the build. GitHub-hosted runners often have more usable space on `/mnt` than on the default Docker root filesystem, and CUDA devel image layers plus PyTorch wheels can exceed the default root volume.
+
+For WarpBuild, choose a runner with enough disk for CUDA devel image layers and PyTorch CUDA wheels. The version contract remains unchanged; only the build runner changes.
 
 If GHCR push fails, check repository Actions permissions and package permissions before changing the Dockerfile.

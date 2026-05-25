@@ -2,6 +2,12 @@ name: build-cexar-a40-image
 
 on:
   workflow_dispatch:
+    inputs:
+      runner_label:
+        description: "Runner label/ID. Use the WarpBuild Runner ID after setup."
+        required: true
+        default: "ubuntu-latest"
+        type: string
 
 permissions:
   contents: read
@@ -15,7 +21,7 @@ env:
 jobs:
   build-and-push:
     name: Build and push CeXaR A40 image
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runner_label }}
 
     steps:
       - name: Checkout repository

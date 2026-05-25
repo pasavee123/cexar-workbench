@@ -57,6 +57,14 @@ None. No new files were created during this run.
 | `BUILD_AND_PUSH_NOTES.md` | Updated | Documented `/mnt/docker` rationale. |
 | `EXPERIMENT_LOG.md` | Updated | Recorded second no-space failure and Docker root relocation mitigation. |
 
+## Codex WarpBuild Runner Selection Update
+
+| File | Type of Change | Summary |
+|------|---------------|---------|
+| `.github/workflows/build-cexar-a40-image.yml` | Updated | Added manual `runner_label` input and changed `runs-on` to use the selected runner label. |
+| `BUILD_AND_PUSH_NOTES.md` | Updated | Documented WarpBuild Runner ID usage and disk requirement rationale. |
+| `EXPERIMENT_LOG.md` | Updated | Recorded WarpBuild path selection without changing the environment contract. |
+
 ## Files NOT Modified
 
 | File | Reason |
