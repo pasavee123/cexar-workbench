@@ -33,7 +33,7 @@ runner_label = <WarpBuild Runner ID>
 Default selected runner:
 
 ```text
-arp-ubuntu-latest-x86-64-16x
+warp-ubuntu-latest-x86-64-16x
 ```
 
 This is the preferred WarpBuild runner for the CeXaR A40 image build. Avoid falling back to `ubuntu-latest` unless intentionally testing the hosted runner failure path.

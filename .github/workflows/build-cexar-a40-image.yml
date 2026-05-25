@@ -6,7 +6,7 @@ on:
       runner_label:
         description: "Runner label/ID. Use the WarpBuild Runner ID after setup."
         required: true
-        default: "arp-ubuntu-latest-x86-64-16x"
+        default: "warp-ubuntu-latest-x86-64-16x"
         type: string
 
 permissions:

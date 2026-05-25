@@ -69,7 +69,7 @@ None. No new files were created during this run.
 
 | File | Type of Change | Summary |
 |------|---------------|---------|
-| `.github/workflows/build-cexar-a40-image.yml` | Updated | Default `runner_label` set to `arp-ubuntu-latest-x86-64-16x`. |
+| `.github/workflows/build-cexar-a40-image.yml` | Updated | Default `runner_label` set to `warp-ubuntu-latest-x86-64-16x`. |
 | `BUILD_AND_PUSH_NOTES.md` | Updated | Documented selected WarpBuild default runner. |
 | `EXPERIMENT_LOG.md` | Updated | Recorded default runner change from `ubuntu-latest` to WarpBuild. |
 
