@@ -22,8 +22,16 @@ Use%: 60%
 
 | Asset | Path | Size | Purpose |
 |-------|------|------|---------|
-| CheXpert raw dataset | `/workspace/chexpert_dataset_raw` | 249G | Primary EXP-0020 RAD-DINO smoke input |
-| NIH14 raw dataset | `/workspace/nih_dataset_raw` | 43G | Future external dataset experiments, not used in EXP-0020 |
+| CheXpert raw dataset | `/workspace/chexpert_dataset_raw` | included in 66G combined dataset usage | Primary EXP-0020 RAD-DINO smoke input |
+| NIH14 raw dataset | `/workspace/nih_dataset_raw` | included in 66G combined dataset usage | Future external dataset experiments, not used in EXP-0020 |
+
+Human correction on 2026-05-26:
+
+```text
+Actual combined Network Volume usage for both datasets is approximately 66G.
+```
+
+Earlier larger per-folder numbers should not be treated as authoritative until re-measured by the runner inside the pod.
 
 ## NIH14 Observed Structure
 
@@ -91,4 +99,3 @@ Forbidden cleanup:
 - `/workspace/chexpert_dataset_raw`
 - `/workspace/nih_dataset_raw`
 - `/workspace/.cache/huggingface` unless explicitly approved by the human
-

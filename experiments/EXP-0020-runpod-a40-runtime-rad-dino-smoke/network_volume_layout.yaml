@@ -18,8 +18,10 @@ paths:
   optional_chexpert_compat_symlink: /mnt/chexpert
 
 asset_sizes:
-  chexpert_dataset_raw: 249G
-  nih_dataset_raw: 43G
+  combined_dataset_usage_observed_by_human: 66G
+  chexpert_dataset_raw: measure_in_pod_before_use
+  nih_dataset_raw: measure_in_pod_before_use
+  note: "Earlier larger per-folder numbers were superseded by human correction; runner must re-measure with du -sh."
 
 policy:
   pod_compute_is_disposable: true

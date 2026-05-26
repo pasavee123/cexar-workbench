@@ -57,6 +57,8 @@ du -sh /workspace/chexpert_dataset_raw
 du -sh /workspace/nih_dataset_raw
 ```
 
+The human reports combined dataset usage is approximately 66G. If `du -sh` reports substantially different sizes, record the exact values in `EXPERIMENT_LOG.md` and continue only if at least 100 required CheXpert images are readable.
+
 Expected:
 - GPU: NVIDIA A40
 - Python: 3.10.x
