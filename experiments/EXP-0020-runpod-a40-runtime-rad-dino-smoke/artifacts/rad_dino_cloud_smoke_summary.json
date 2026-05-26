@@ -1,0 +1,44 @@
+{
+  "cpu_memory_before": {
+    "available_gb": 1338.94,
+    "total_gb": 1511.56,
+    "used_percent": 11.4
+  },
+  "device_required": "cuda",
+  "embedding_shape": [
+    100,
+    768
+  ],
+  "experiment_id": "EXP-0020",
+  "failures": [],
+  "gpu_after_inference": {
+    "allocated_vram_mb": 346.3,
+    "cuda_available": true,
+    "device_name": "NVIDIA RTX 6000 Ada Generation",
+    "reserved_vram_mb": 750.0,
+    "total_vram_mb": 48640.1
+  },
+  "gpu_after_model_load": {
+    "allocated_vram_mb": 331.0,
+    "cuda_available": true,
+    "device_name": "NVIDIA RTX 6000 Ada Generation",
+    "reserved_vram_mb": 382.0,
+    "total_vram_mb": 48640.1
+  },
+  "gpu_before": {
+    "allocated_vram_mb": 0.0,
+    "cuda_available": true,
+    "device_name": "NVIDIA RTX 6000 Ada Generation",
+    "reserved_vram_mb": 0.0,
+    "total_vram_mb": 48640.1
+  },
+  "image_count_requested": 100,
+  "images_attempted": 100,
+  "images_failed": 0,
+  "images_succeeded": 100,
+  "medical_claims": "none",
+  "metrics_computed": false,
+  "model_id": "microsoft/rad-dino",
+  "runtime_seconds": 13.44,
+  "training_performed": false
+}
