@@ -1,0 +1,29 @@
+experiment_id: EXP-0020
+network_volume:
+  provider: runpod
+  mount_path: /workspace
+  observed_mount: mfs#us-wa-1.runpod.net:9421
+  observed_size: 479T
+  observed_used: 287T
+  observed_available: 192T
+  observed_use_percent: 60
+
+paths:
+  repo: /workspace/cexar-workbench
+  chexpert_dataset_root: /workspace/chexpert_dataset_raw
+  chexpert_dataset_archive_root: /workspace/chexpert_dataset_raw/archive
+  nih14_dataset_root: /workspace/nih_dataset_raw
+  hf_cache: /workspace/.cache/huggingface
+  torch_cache: /workspace/.cache/torch
+  optional_chexpert_compat_symlink: /mnt/chexpert
+
+asset_sizes:
+  chexpert_dataset_raw: 249G
+  nih_dataset_raw: 43G
+
+policy:
+  pod_compute_is_disposable: true
+  network_volume_is_persistent_asset_store: true
+  do_not_commit_dataset_files: true
+  do_not_delete_dataset_roots: true
+  runner_must_log_symlink_or_cleanup_commands: true

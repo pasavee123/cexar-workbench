@@ -30,6 +30,8 @@ Forbidden:
 - `standards/integration_gate.md`
 - `experiments/EXP-0019-custom-a40-environment-build/RESULT.md`
 - `experiments/EXP-0020-runpod-a40-runtime-rad-dino-smoke/runpod_runtime_contract.yaml`
+- `experiments/EXP-0020-runpod-a40-runtime-rad-dino-smoke/DATA_ASSET_MANIFEST.md`
+- `experiments/EXP-0020-runpod-a40-runtime-rad-dino-smoke/network_volume_layout.yaml`
 - `experiments/EXP-0016-chexpert-scale-up-readiness/artifacts/candidate_manifest_1k.csv`
 
 ## Phase 0: Safety and Ledger
@@ -51,7 +53,8 @@ python --version
 nvcc --version
 python /opt/cexar/verify_environment.py
 df -h /workspace
-df -h /mnt/chexpert
+du -sh /workspace/chexpert_dataset_raw
+du -sh /workspace/nih_dataset_raw
 ```
 
 Expected:
@@ -61,7 +64,8 @@ Expected:
 - torch: 2.3.1+cu121
 - torchvision: 0.18.1+cu121
 - `/workspace` writable
-- `/mnt/chexpert` readable
+- `/workspace/chexpert_dataset_raw` readable
+- `/workspace/nih_dataset_raw` readable
 
 ## Phase 2: Repository and Manifest Verification
 
@@ -80,8 +84,17 @@ experiments/EXP-0016-chexpert-scale-up-readiness/artifacts/candidate_manifest_1k
 Verify at least 100 manifest rows map to readable image files under:
 
 ```text
-/mnt/chexpert/archive
+/workspace/chexpert_dataset_raw/archive
 ```
+
+Optional compatibility setup:
+
+```bash
+mkdir -p /mnt
+ln -sfn /workspace/chexpert_dataset_raw /mnt/chexpert
+```
+
+Only create this symlink after registering the exact command in `commands.ps1`.
 
 ## Phase 3: RAD-DINO 100-Image Embedding Smoke
 
@@ -115,8 +128,7 @@ Stop and write `FAILURE_REPORT.md` if:
 - CUDA is unavailable.
 - `verify_environment.py` fails.
 - `/workspace` is not writable.
-- `/mnt/chexpert` is missing or unreadable.
+- `/workspace/chexpert_dataset_raw` is missing or unreadable.
 - fewer than 100 images are readable before inference.
 - RAD-DINO embedding shape is not `[100, 768]`.
 - any command was run without exact ledger recording.
-

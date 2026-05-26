@@ -19,10 +19,9 @@ Critical rules:
 - Use image `ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717116858`.
 - Stop if GPU is not NVIDIA A40.
 - Stop if CUDA is not available.
-- Stop if `/workspace` or `/mnt/chexpert` is unavailable.
+- Stop if `/workspace` or `/workspace/chexpert_dataset_raw` is unavailable.
 - Do not train, classify, compute AUROC/AUPRC, or make clinical claims.
 - Do not modify production code.
 - Do not commit secrets or host connection details.
 
 Your task is runtime verification plus a 100-image RAD-DINO embedding smoke test only.
-

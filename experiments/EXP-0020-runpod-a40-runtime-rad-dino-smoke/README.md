@@ -19,7 +19,8 @@ ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717
 - GPU: NVIDIA A40
 - Container image: full SHA tag above
 - Volume mount path: `/workspace`
-- Dataset mount path: `/mnt/chexpert`
+- Dataset path: `/workspace/chexpert_dataset_raw`
+- Optional compatibility symlink: `/mnt/chexpert -> /workspace/chexpert_dataset_raw`
 - SSH over exposed TCP enabled
 - No credentials committed to the repository
 
@@ -29,7 +30,6 @@ EXP-0020 passes only if:
 - The container boots on RunPod A40.
 - Runtime verification passes.
 - PyTorch sees NVIDIA A40 through CUDA.
-- `/workspace` and `/mnt/chexpert` are available.
+- `/workspace` and `/workspace/chexpert_dataset_raw` are available.
 - RAD-DINO embeddings are generated for exactly 100 images.
 - Output embedding shape is `[100, 768]`.
-

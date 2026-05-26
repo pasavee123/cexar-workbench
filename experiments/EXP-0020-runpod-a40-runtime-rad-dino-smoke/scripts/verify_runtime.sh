@@ -23,5 +23,15 @@ echo "== workspace disk =="
 df -h /workspace
 
 echo "== dataset mount disk =="
-df -h /mnt/chexpert
+df -h /workspace
 
+echo "== CheXpert dataset =="
+du -sh /workspace/chexpert_dataset_raw
+
+echo "== NIH14 dataset =="
+du -sh /workspace/nih_dataset_raw
+
+if [ -e /mnt/chexpert ]; then
+  echo "== optional /mnt/chexpert compatibility path =="
+  ls -ld /mnt/chexpert
+fi

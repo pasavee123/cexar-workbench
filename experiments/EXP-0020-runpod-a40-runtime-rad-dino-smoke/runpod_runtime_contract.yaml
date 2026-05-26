@@ -16,8 +16,10 @@ compute:
 paths:
   project_root: /workspace/cexar-workbench
   workspace: /workspace
-  dataset_mount: /mnt/chexpert
-  dataset_archive_root: /mnt/chexpert/archive
+  chexpert_dataset_root: /workspace/chexpert_dataset_raw
+  chexpert_dataset_archive_root: /workspace/chexpert_dataset_raw/archive
+  nih14_dataset_root: /workspace/nih_dataset_raw
+  optional_chexpert_compat_symlink: /mnt/chexpert
   hf_home: /workspace/.cache/huggingface
   torch_home: /workspace/.cache/torch
   manifest: experiments/EXP-0016-chexpert-scale-up-readiness/artifacts/candidate_manifest_1k.csv
@@ -38,4 +40,3 @@ forbidden_actions:
   - production_integration
   - dataset_upload_without_human_approval
   - writing_secrets_to_repo
-

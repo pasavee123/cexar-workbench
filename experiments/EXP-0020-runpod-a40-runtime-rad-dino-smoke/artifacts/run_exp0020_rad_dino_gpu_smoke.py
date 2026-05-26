@@ -63,7 +63,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--manifest", required=True)
     parser.add_argument("--windows-prefix", default=r"D:\Dataset_Chexpert")
-    parser.add_argument("--cloud-prefix", default="/mnt/chexpert")
+    parser.add_argument("--cloud-prefix", default="/workspace/chexpert_dataset_raw")
     parser.add_argument("--model-id", default="microsoft/rad-dino")
     parser.add_argument("--limit", type=int, default=100)
     parser.add_argument("--output-summary", required=True)
@@ -178,4 +178,3 @@ def write_summary(path, payload):
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
