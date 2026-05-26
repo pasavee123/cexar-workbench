@@ -23,5 +23,8 @@ Critical rules:
 - Do not train, classify, compute AUROC/AUPRC, or make clinical claims.
 - Do not modify production code.
 - Do not commit secrets or host connection details.
+- After completion, commit and push results only to branch `exp/0020-runpod-smoke-result`.
+- Never push to `main`.
+- If Git authentication is missing or asks for a token, stop and ask the human. Do not paste tokens into logged commands and do not write tokens to files.
 
 Your task is runtime verification plus a 100-image RAD-DINO embedding smoke test only.

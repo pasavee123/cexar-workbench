@@ -17,6 +17,8 @@ Run EXP-0020 on a RunPod A40 pod using the EXP-0019 image and verify that RAD-DI
 - Do not make clinical claims.
 - Do not continue if GPU is not NVIDIA A40.
 - Do not continue if CUDA is unavailable.
+- Do not push to `main`.
+- Do not commit or push secrets, credentials, hostnames, private IPs, SSH keys, or API tokens.
 
 ## Attempt Budget
 
@@ -40,3 +42,34 @@ After the attempt budget is exceeded, stop and write `FAILURE_REPORT.md`.
 - peak/observed VRAM if available
 - explicit statement: no clinical claims
 
+## Review Branch Publishing
+
+After completing EXP-0020 documentation, publish results to a separate review branch only:
+
+```text
+exp/0020-runpod-smoke-result
+```
+
+Required branch flow:
+
+```bash
+git checkout -b exp/0020-runpod-smoke-result
+git add experiments/EXP-0020-runpod-a40-runtime-rad-dino-smoke
+git commit -m "record EXP-0020 RunPod A40 smoke result"
+git push origin exp/0020-runpod-smoke-result
+```
+
+If the branch already exists remotely, create a timestamped alternative:
+
+```text
+exp/0020-runpod-smoke-result-YYYYMMDD-HHMM
+```
+
+Stop and write `FAILURE_REPORT.md` instead of pushing if:
+- Git authentication is unavailable.
+- Git asks for a token that would be pasted into a command or written to a file.
+- The working tree contains unrelated changes outside `experiments/EXP-0020-runpod-a40-runtime-rad-dino-smoke`.
+- The runner would need to push directly to `main`.
+- The branch push fails twice.
+
+The runner may ask the human for GitHub authentication help, but must not store secrets in repo files or logs.

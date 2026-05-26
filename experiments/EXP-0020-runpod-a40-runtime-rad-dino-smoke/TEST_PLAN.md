@@ -123,6 +123,14 @@ Write:
 - `DIFF_SUMMARY.md`
 - `REVIEW_NOTES_FOR_CODEX.md`
 
+Publish results to a review branch only:
+
+```text
+exp/0020-runpod-smoke-result
+```
+
+Do not push to `main`.
+
 ## Stop Conditions
 
 Stop and write `FAILURE_REPORT.md` if:
@@ -134,3 +142,5 @@ Stop and write `FAILURE_REPORT.md` if:
 - fewer than 100 images are readable before inference.
 - RAD-DINO embedding shape is not `[100, 768]`.
 - any command was run without exact ledger recording.
+- Git authentication is unavailable for the review branch push.
+- pushing would require writing credentials into repo files or logs.
