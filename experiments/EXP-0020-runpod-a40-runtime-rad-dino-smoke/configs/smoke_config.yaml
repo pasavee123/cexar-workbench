@@ -1,7 +1,10 @@
 image_tag: ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717116858
 model_id: microsoft/rad-dino
 sample_size: 100
-expected_gpu: NVIDIA A40
+expected_gpu: NVIDIA RTX 6000 Ada Generation
+accepted_gpu_name_substrings:
+  - RTX 6000 Ada
+  - NVIDIA RTX 6000 Ada
 expected_embedding_dim: 768
 manifest_path: experiments/EXP-0016-chexpert-scale-up-readiness/artifacts/candidate_manifest_1k.csv
 windows_dataset_prefix: "D:\\Dataset_Chexpert"

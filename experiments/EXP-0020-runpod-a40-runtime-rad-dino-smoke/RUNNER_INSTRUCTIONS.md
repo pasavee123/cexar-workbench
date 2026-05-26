@@ -2,7 +2,7 @@
 
 ## Mission
 
-Run EXP-0020 on a RunPod A40 pod using the EXP-0019 image and verify that RAD-DINO embedding extraction works on 100 real CheXpert images.
+Run EXP-0020 on a RunPod RTX 6000 Ada pod using the EXP-0019 image and verify that RAD-DINO embedding extraction works on 100 real CheXpert images.
 
 ## Hard Rules
 
@@ -15,7 +15,7 @@ Run EXP-0020 on a RunPod A40 pod using the EXP-0019 image and verify that RAD-DI
 - Do not train models.
 - Do not compute clinical metrics.
 - Do not make clinical claims.
-- Do not continue if GPU is not NVIDIA A40.
+- Do not continue if GPU is not NVIDIA RTX 6000 Ada Generation.
 - Do not continue if CUDA is unavailable.
 - Do not push to `main`.
 - Do not commit or push secrets, credentials, hostnames, private IPs, SSH keys, or API tokens.
@@ -55,7 +55,7 @@ Required branch flow:
 ```bash
 git checkout -b exp/0020-runpod-smoke-result
 git add experiments/EXP-0020-runpod-a40-runtime-rad-dino-smoke
-git commit -m "record EXP-0020 RunPod A40 smoke result"
+git commit -m "record EXP-0020 RunPod RTX 6000 Ada smoke result"
 git push origin exp/0020-runpod-smoke-result
 ```
 

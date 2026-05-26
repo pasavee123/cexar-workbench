@@ -17,9 +17,10 @@ Critical rules:
 - Register every terminal command in `commands.ps1` before execution.
 - Log every command result in `EXPERIMENT_LOG.md`.
 - Use image `ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717116858`.
-- Stop if GPU is not NVIDIA A40.
+- Stop if GPU is not NVIDIA RTX 6000 Ada Generation.
 - Stop if CUDA is not available.
 - Stop if `/workspace` or `/workspace/chexpert_dataset_raw` is unavailable.
+- Use `/root/cexar-workbench` as the repository checkout path. Use `/workspace` only for datasets, caches, and large artifacts.
 - Do not train, classify, compute AUROC/AUPRC, or make clinical claims.
 - Do not modify production code.
 - Do not commit secrets or host connection details.

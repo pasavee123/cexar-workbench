@@ -66,6 +66,7 @@ def main():
     parser.add_argument("--cloud-prefix", default="/workspace/chexpert_dataset_raw")
     parser.add_argument("--model-id", default="microsoft/rad-dino")
     parser.add_argument("--limit", type=int, default=100)
+    parser.add_argument("--expected-gpu-substring", default="RTX 6000 Ada")
     parser.add_argument("--output-summary", required=True)
     parser.add_argument("--output-embeddings", required=True)
     args = parser.parse_args()
@@ -97,8 +98,11 @@ def main():
         raise SystemExit(1)
 
     gpu_name = torch.cuda.get_device_name(0)
-    if "A40" not in gpu_name:
-        result["failures"].append({"stage": "preflight", "error": f"Expected NVIDIA A40, got {gpu_name}"})
+    if args.expected_gpu_substring.lower() not in gpu_name.lower():
+        result["failures"].append({
+            "stage": "preflight",
+            "error": f"Expected GPU containing '{args.expected_gpu_substring}', got {gpu_name}",
+        })
         write_summary(args.output_summary, result)
         raise SystemExit(1)
 

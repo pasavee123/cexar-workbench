@@ -1,20 +1,24 @@
 experiment_id: EXP-0020
-purpose: runpod_a40_runtime_rad_dino_smoke
+purpose: runpod_rtx6000_ada_runtime_rad_dino_smoke
 execution_stage: runtime_and_embedding_smoke_only
 
 image:
   required_tag: ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717116858
   source_experiment: EXP-0019-custom-a40-environment-build
+  note: Image name is legacy from the original A40 build plan; the required runtime GPU for this and future cloud experiments is RTX 6000 Ada.
 
 compute:
   gpu:
     required: true
-    model: NVIDIA A40
+    model: NVIDIA RTX 6000 Ada Generation
+    accepted_name_substrings:
+      - RTX 6000 Ada
+      - NVIDIA RTX 6000 Ada
     runner_may_change_gpu: false
   cuda_required: true
 
 paths:
-  project_root: /workspace/cexar-workbench
+  project_root: /root/cexar-workbench
   workspace: /workspace
   chexpert_dataset_root: /workspace/chexpert_dataset_raw
   chexpert_dataset_archive_root: /workspace/chexpert_dataset_raw/archive

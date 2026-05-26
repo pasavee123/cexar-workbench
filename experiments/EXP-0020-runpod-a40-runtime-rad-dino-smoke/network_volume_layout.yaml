@@ -9,7 +9,8 @@ network_volume:
   observed_use_percent: 60
 
 paths:
-  repo: /workspace/cexar-workbench
+  repo_preferred_runtime_checkout: /root/cexar-workbench
+  repo_on_network_volume: not_recommended
   chexpert_dataset_root: /workspace/chexpert_dataset_raw
   chexpert_dataset_archive_root: /workspace/chexpert_dataset_raw/archive
   nih14_dataset_root: /workspace/nih_dataset_raw
@@ -26,6 +27,7 @@ asset_sizes:
 policy:
   pod_compute_is_disposable: true
   network_volume_is_persistent_asset_store: true
+  keep_repository_outside_network_volume: true
   do_not_commit_dataset_files: true
   do_not_delete_dataset_roots: true
   runner_must_log_symlink_or_cleanup_commands: true

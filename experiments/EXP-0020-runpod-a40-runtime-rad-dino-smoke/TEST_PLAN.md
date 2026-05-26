@@ -2,11 +2,11 @@
 
 ## Scope
 
-EXP-0020 validates the EXP-0019 custom image on RunPod A40 and runs a 100-image RAD-DINO embedding smoke test.
+EXP-0020 validates the EXP-0019 custom image on RunPod RTX 6000 Ada and runs a 100-image RAD-DINO embedding smoke test.
 
 Allowed:
 - SSH into the RunPod pod.
-- Clone/pull this repository under `/workspace/cexar-workbench`.
+- Clone/pull this repository under `/root/cexar-workbench`.
 - Verify runtime environment.
 - Verify dataset mount and sample image paths.
 - Download or use cached RAD-DINO weights.
@@ -60,7 +60,7 @@ du -sh /workspace/nih_dataset_raw
 The human reports combined dataset usage is approximately 66G. If `du -sh` reports substantially different sizes, record the exact values in `EXPERIMENT_LOG.md` and continue only if at least 100 required CheXpert images are readable.
 
 Expected:
-- GPU: NVIDIA A40
+- GPU: NVIDIA RTX 6000 Ada Generation
 - Python: 3.10.x
 - CUDA build: 12.1
 - torch: 2.3.1+cu121
@@ -74,7 +74,7 @@ Expected:
 Verify the repository is available at:
 
 ```text
-/workspace/cexar-workbench
+/root/cexar-workbench
 ```
 
 Verify manifest exists:
@@ -104,7 +104,7 @@ Run `artifacts/run_exp0020_rad_dino_gpu_smoke.py` with:
 
 - sample size: 100
 - device: CUDA only
-- expected GPU: NVIDIA A40
+- expected GPU: NVIDIA RTX 6000 Ada Generation
 - expected embedding dimension: 768
 - no labels, classifiers, metrics, or clinical claims
 
@@ -134,7 +134,7 @@ Do not push to `main`.
 ## Stop Conditions
 
 Stop and write `FAILURE_REPORT.md` if:
-- GPU is not NVIDIA A40.
+- GPU is not NVIDIA RTX 6000 Ada Generation.
 - CUDA is unavailable.
 - `verify_environment.py` fails.
 - `/workspace` is not writable.
