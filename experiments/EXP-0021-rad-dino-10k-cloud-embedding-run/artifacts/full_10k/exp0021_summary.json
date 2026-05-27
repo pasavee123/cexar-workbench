@@ -1,0 +1,32 @@
+{
+  "experiment_id": "EXP-0021",
+  "model_id": "microsoft/rad-dino",
+  "manifest": "candidate_manifest_10k.csv",
+  "limit": 10000,
+  "total_in_manifest": 10000,
+  "images_attempted": 10000,
+  "images_succeeded": 10000,
+  "images_failed": 0,
+  "embedding_dim": 768,
+  "shard_size": 1000,
+  "num_shards": 10,
+  "shard_files": [
+    "shard_0000.npz",
+    "shard_0001.npz",
+    "shard_0002.npz",
+    "shard_0003.npz",
+    "shard_0004.npz",
+    "shard_0005.npz",
+    "shard_0006.npz",
+    "shard_0007.npz",
+    "shard_0008.npz",
+    "shard_0009.npz"
+  ],
+  "runtime_seconds": 498.3,
+  "device": "cuda",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "hf_cache": "/workspace/.cache/huggingface",
+  "torch_cache": "/workspace/.cache/torch",
+  "allow_partial": false,
+  "failures_log": null
+}

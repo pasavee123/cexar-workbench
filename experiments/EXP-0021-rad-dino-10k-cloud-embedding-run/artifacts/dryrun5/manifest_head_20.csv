@@ -1,0 +1,6 @@
+sample_index,resolved_path,patient_id,source_csv,csv_row_idx,Frontal/Lateral,Sex,Age,AP/PA,Atelectasis,Consolidation,Pneumothorax,Edema,Pleural Effusion,Pneumonia,Cardiomegaly,Lung Lesion,Fracture,Lung Opacity,Enlarged Cardiomediastinum,split_placeholder
+0,/workspace/chexpert_dataset_raw/valid/patient64550/study1/view1_frontal.jpg,patient64550,valid,12,Frontal,Male,34,AP,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+1,/workspace/chexpert_dataset_raw/valid/patient64556/study1/view1_frontal.jpg,patient64556,valid,19,Frontal,Male,47,PA,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
+2,/workspace/chexpert_dataset_raw/valid/patient64547/study1/view2_frontal.jpg,patient64547,valid,8,Frontal,Male,59,PA,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,
+3,/workspace/chexpert_dataset_raw/valid/patient64541/study1/view1_frontal.jpg,patient64541,valid,0,Frontal,Male,73,AP,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,
+4,/workspace/chexpert_dataset_raw/train/patient00009/study1/view1_frontal.jpg,patient00009,train,16,Frontal,Male,76,PA,1.0,,,0.0,,,1.0,,,,,

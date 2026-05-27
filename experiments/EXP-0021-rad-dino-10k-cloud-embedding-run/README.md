@@ -52,3 +52,38 @@ Large outputs must stay outside git:
 ```
 
 Git-tracked outputs should be lightweight summaries and documentation only.
+
+## Verified 10k Run Result
+
+Codex reviewed the full-run artifacts on 2026-05-27 and verified that the 10,000-image embedding extraction completed as an embedding production rehearsal.
+
+Observed external artifacts:
+
+```text
+/workspace/exp_artifacts/EXP-0021/runs/full_10k/
+  manifests/candidate_manifest_10k.csv
+  embeddings/shard_0000.npz ... shard_0009.npz
+  checkpoints/progress.json
+  summaries/exp0021_summary.json
+```
+
+Observed lightweight git artifacts:
+
+```text
+experiments/EXP-0021-rad-dino-10k-cloud-embedding-run/artifacts/full_10k/
+  exp0021_summary.json
+  manifest_head_20.csv
+  codex_verification_summary.json
+```
+
+Summary values observed from `exp0021_summary.json`:
+
+- `images_attempted`: 10000
+- `images_succeeded`: 10000
+- `images_failed`: 0
+- `embedding_dim`: 768
+- `num_shards`: 10
+- `gpu_name`: `NVIDIA RTX 6000 Ada Generation`
+- `allow_partial`: false
+
+This experiment did not train a model, fit a classifier, compute AUROC/AUPRC, make clinical claims, or integrate production code.

@@ -36,7 +36,7 @@ DeepSeek authored the EXP-0021 scripts. Codex reviewed and applied pre-run fixes
 - Added failure JSONL logging for image-level exceptions.
 - Changed checkpoint semantics so only successful image indices are marked complete. Failed images remain retryable on resume.
 
-## Verdict
+## Pre-Run Verdict
 
 `APPROVE_DRY_RUN_ONLY`
 
@@ -48,3 +48,36 @@ bash experiments/EXP-0021-rad-dino-10k-cloud-embedding-run/scripts/run_exp0021_1
 ```
 
 Do not run the full 10k command until Codex reviews the dry-run outputs and upgrades the verdict to `APPROVE_FULL_10K_RUN`.
+
+## Post-Run Codex Verification
+
+Codex inspected the dry-run and full-run lightweight summaries plus the external full-run checkpoint and shard inventory on 2026-05-27.
+
+Observed dry-run summaries:
+
+- `dryrun5`: 5 attempted, 5 succeeded, 0 failed, embedding dimension 768.
+- `dryrun100`: 100 attempted, 100 succeeded, 0 failed, embedding dimension 768.
+
+Observed full-run summary:
+
+- 10,000 images attempted.
+- 10,000 images succeeded.
+- 0 images failed.
+- 10 shard files listed.
+- Embedding dimension reported as 768.
+- GPU reported as `NVIDIA RTX 6000 Ada Generation`.
+- `allow_partial` reported as false.
+
+Observed checkpoint:
+
+- `success_count`: 10000.
+- `completed_indices` length: 10000.
+- First indices: `[0, 1, 2]`.
+- Last indices: `[9997, 9998, 9999]`.
+- `next_shard_id`: 10.
+
+Codex also inspected the `.npz` shard internals with `/opt/venv/bin/python`; ten shard files were present, total embedding rows were 10000, and no shard had a non-`[N, 768]` embedding shape.
+
+Final Codex verdict: `PASS_AS_EMBEDDING_REHEARSAL`.
+
+This verdict is limited to artifact production and documentation review. It is not a clinical evaluation, does not include AUROC/AUPRC, and does not approve production integration.

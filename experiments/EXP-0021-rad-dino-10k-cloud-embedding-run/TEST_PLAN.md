@@ -96,8 +96,19 @@ Expected:
 - 10,000 images requested
 - 10,000 images attempted unless stopped by documented failure
 - all successful embeddings shape `[N, 768]`
-- sharded outputs under `/workspace/exp_artifacts/EXP-0021/embeddings`
+- sharded outputs under `/workspace/exp_artifacts/EXP-0021/runs/full_10k/embeddings`
 - lightweight summary copied into `artifacts/`
+
+Observed on 2026-05-27:
+
+- `images_attempted`: 10000
+- `images_succeeded`: 10000
+- `images_failed`: 0
+- `embedding_dim`: 768
+- `num_shards`: 10
+- checkpoint `success_count`: 10000
+- checkpoint completed index count: 10000
+- external summary and git lightweight summary were byte-identical
 
 ## Stop Conditions
 

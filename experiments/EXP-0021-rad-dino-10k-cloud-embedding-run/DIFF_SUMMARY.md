@@ -24,3 +24,11 @@
 ## Production Code
 
 No production code changed.
+
+## 10k Result Documentation
+
+- Updated EXP-0021 documentation to record observed dry-run and full-run results.
+- Added lightweight full-run Codex verification summary under `artifacts/full_10k/`.
+- Confirmed large `.npz` embedding shards remain outside git under `/workspace/exp_artifacts/EXP-0021/runs/full_10k/embeddings/`.
+- No production code changed.
+- No clinical claims, AUROC/AUPRC calculation, classifier fitting, or production integration added.

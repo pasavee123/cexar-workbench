@@ -1,0 +1,46 @@
+{
+  "experiment_id": "EXP-0021",
+  "verification_date_utc": "2026-05-27",
+  "codex_verdict": "PASS_AS_EMBEDDING_REHEARSAL",
+  "scope": "10,000-image RAD-DINO embedding extraction artifact verification only",
+  "clinical_claims_made": false,
+  "auroc_auprc_computed": false,
+  "production_integration_approved": false,
+  "external_summary": "/workspace/exp_artifacts/EXP-0021/runs/full_10k/summaries/exp0021_summary.json",
+  "external_checkpoint": "/workspace/exp_artifacts/EXP-0021/runs/full_10k/checkpoints/progress.json",
+  "external_embedding_dir": "/workspace/exp_artifacts/EXP-0021/runs/full_10k/embeddings",
+  "git_summary": "experiments/EXP-0021-rad-dino-10k-cloud-embedding-run/artifacts/full_10k/exp0021_summary.json",
+  "summary_observed": {
+    "limit": 10000,
+    "total_in_manifest": 10000,
+    "images_attempted": 10000,
+    "images_succeeded": 10000,
+    "images_failed": 0,
+    "embedding_dim": 768,
+    "shard_size": 1000,
+    "num_shards": 10,
+    "runtime_seconds": 498.3,
+    "device": "cuda",
+    "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+    "allow_partial": false,
+    "failures_log": null
+  },
+  "checkpoint_observed": {
+    "success_count": 10000,
+    "completed_indices_count": 10000,
+    "first_completed_indices": [0, 1, 2],
+    "last_completed_indices": [9997, 9998, 9999],
+    "next_shard_id": 10
+  },
+  "shards_observed": {
+    "npz_file_count": 10,
+    "total_embedding_rows": 10000,
+    "embedding_dim": 768,
+    "bad_shape_count": 0,
+    "keys_observed": ["embeddings", "paths"]
+  },
+  "large_artifact_policy": {
+    "npz_shards_under_workspace_only": true,
+    "npz_shards_committed_to_git": false
+  }
+}
