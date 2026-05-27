@@ -1,0 +1,48 @@
+experiment_id: EXP-0022
+name: rad_dino_throughput_optimization
+
+runtime:
+  required_gpu: NVIDIA RTX 6000 Ada Generation
+  accepted_gpu_name_substrings:
+    - RTX 6000 Ada
+    - NVIDIA RTX 6000 Ada
+  python: /opt/venv/bin/python
+  image: ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717116858
+
+paths:
+  repo_root: /root/cexar-workbench
+  workspace: /workspace
+  chexpert_dataset_root: /workspace/chexpert_dataset_raw
+  hf_home: /workspace/.cache/huggingface
+  torch_home: /workspace/.cache/torch
+  exp0021_manifest: /workspace/exp_artifacts/EXP-0021/runs/full_10k/manifests/candidate_manifest_10k.csv
+  artifact_root: /workspace/exp_artifacts/EXP-0022
+  review_packet_dir: /workspace/exp_artifacts/EXP-0022/review_packet
+
+benchmark:
+  sample_size: 2000
+  seed: 20260527
+  batch_sizes: [1, 8, 16, 32, 64]
+  num_workers: [0, 2, 4, 8]
+  pin_memory: true
+  prefetch_factor: 2
+  persistent_workers: true
+  warmup_batches: 2
+  strict_zero_failures: true
+
+model:
+  model_id: microsoft/rad-dino
+  expected_embedding_dim: 768
+  device: cuda
+
+forbidden:
+  - model_training
+  - classifier_training
+  - auroc_calculation
+  - auprc_calculation
+  - clinical_claims
+  - production_integration
+  - dataset_deletion
+  - cache_deletion
+  - github_push_from_pod_without_human_approval
+
