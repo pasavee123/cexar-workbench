@@ -162,21 +162,26 @@ def benchmark_candidate(
 
     images_succeeded = 0
     images_failed = 0
-    total_time = 0.0
+    measured_time = 0.0
+    measured_images = 0
     batch_count = 0
     batch_latencies = []
     oom = False
     error_message = None
 
-    iterator = iter(loader)
-
     try:
-        for batch_idx, (pixel_values, paths, fail_count) in enumerate(iterator):
+        iterator = iter(loader)
+        previous_batch_end = None
+
+        for batch_idx in range(len(loader)):
+            fetch_start = time.perf_counter()
+            pixel_values, paths, fail_count = next(iterator)
+            fetch_end = time.perf_counter()
+
             if pixel_values is None:
                 images_failed += fail_count
                 continue
 
-            batch_start = time.perf_counter()
             try:
                 run_candidate(model, pixel_values, device)
             except torch.cuda.OutOfMemoryError as e:
@@ -184,6 +189,8 @@ def benchmark_candidate(
                 error_message = f"CUDA OOM at batch {batch_idx}: {e}"
                 torch.cuda.empty_cache()
                 break
+            if torch.cuda.is_available():
+                torch.cuda.synchronize()
             batch_end = time.perf_counter()
 
             actual_batch_size = len(paths)
@@ -192,12 +199,17 @@ def benchmark_candidate(
 
             if batch_idx < warmup_batches:
                 batch_count += 1
+                previous_batch_end = batch_end
                 continue
 
-            elapsed = batch_end - batch_start
-            total_time += elapsed
-            batch_latencies.append(elapsed)
+            if previous_batch_end is None:
+                previous_batch_end = fetch_start
+            end_to_end_elapsed = batch_end - previous_batch_end
+            measured_time += end_to_end_elapsed
+            measured_images += actual_batch_size
+            batch_latencies.append(end_to_end_elapsed)
             batch_count += 1
+            previous_batch_end = batch_end
 
     finally:
         del iterator
@@ -210,8 +222,8 @@ def benchmark_candidate(
     alloc_mb, reserved_mb = vram_stats_mb()
 
     images_per_second = None
-    if total_time > 0 and images_succeeded > 0:
-        images_per_second = round(images_succeeded / total_time, 2)
+    if measured_time > 0 and measured_images > 0:
+        images_per_second = round(measured_images / measured_time, 2)
 
     median_latency = None
     if batch_latencies:
@@ -226,13 +238,14 @@ def benchmark_candidate(
         "images_attempted": len(all_paths),
         "images_succeeded": images_succeeded,
         "images_failed": images_failed,
-        "runtime_seconds": round(total_time, 2),
+        "runtime_seconds": round(measured_time, 2),
+        "measured_images": measured_images,
         "images_per_second": images_per_second,
         "peak_allocated_vram_mb": alloc_mb,
         "peak_reserved_vram_mb": reserved_mb,
         "cpu_memory_before_mb": cpu_before,
         "cpu_memory_after_mb": cpu_after,
-        "median_batch_latency_s": median_latency,
+        "median_end_to_end_batch_latency_s": median_latency,
         "oom": oom,
         "error": error_message,
     }
@@ -394,7 +407,7 @@ def main():
         "images_failed", "runtime_seconds", "images_per_second",
         "peak_allocated_vram_mb", "peak_reserved_vram_mb",
         "cpu_memory_before_mb", "cpu_memory_after_mb",
-        "median_batch_latency_s", "oom", "error",
+        "measured_images", "median_end_to_end_batch_latency_s", "oom", "error",
     ]
     with open(csv_path, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")

@@ -149,7 +149,7 @@ def generate_failure_draft(meta):
             if c.get("oom"):
                 lines.append(
                     f"- bs={c['batch_size']}, workers={c['num_workers']}: "
-                    f"CUDA OOM — {c.get('error', 'no detail')}"
+                    f"CUDA OOM - {c.get('error', 'no detail')}"
                 )
             elif c.get("error"):
                 lines.append(
@@ -169,9 +169,9 @@ def generate_diff_summary():
     lines.append("")
     lines.append("## Files Created")
     lines.append("")
-    lines.append("- `scripts/benchmark_rad_dino_dataloader.py` — batched DataLoader benchmark runner")
-    lines.append("- `scripts/run_exp0022_benchmark.sh` — experiment orchestrator")
-    lines.append("- `scripts/generate_review_packet.py` — review packet generator")
+    lines.append("- `scripts/benchmark_rad_dino_dataloader.py` - batched DataLoader benchmark runner")
+    lines.append("- `scripts/run_exp0022_benchmark.sh` - experiment orchestrator")
+    lines.append("- `scripts/generate_review_packet.py` - review packet generator")
     lines.append("")
     lines.append("## Production Code Changes")
     lines.append("")
@@ -313,3 +313,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

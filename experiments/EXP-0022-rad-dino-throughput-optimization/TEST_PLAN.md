@@ -36,12 +36,13 @@ For each candidate:
 - images_attempted
 - images_succeeded
 - images_failed
-- runtime_seconds
-- images_per_second
+- runtime_seconds, measured after warmup as end-to-end batch time including DataLoader fetch plus GPU inference
+- measured_images
+- images_per_second, computed as measured_images / measured end-to-end runtime
 - peak_allocated_vram_mb
 - peak_reserved_vram_mb
 - cpu_memory_before/after
-- median batch latency if feasible
+- median end-to-end batch latency if feasible
 - errors
 
 ## Required Artifacts
@@ -82,4 +83,3 @@ Stop and write failure drafts if:
 - no candidate processes at least 100 images successfully.
 - any script attempts to delete dataset/cache/repo roots.
 - any clinical metric or clinical claim appears.
-
