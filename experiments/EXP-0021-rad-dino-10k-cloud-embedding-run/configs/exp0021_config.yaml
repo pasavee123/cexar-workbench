@@ -1,0 +1,51 @@
+experiment_id: EXP-0021
+name: rad_dino_10k_cloud_embedding_run
+
+runtime:
+  required_gpu: NVIDIA RTX 6000 Ada Generation
+  accepted_gpu_name_substrings:
+    - RTX 6000 Ada
+    - NVIDIA RTX 6000 Ada
+  python: /opt/venv/bin/python
+  image: ghcr.io/pasavee123/cexar-a40:cuda121-torch231-03b1e789264b581b1166f7fd0c8416d717116858
+
+paths:
+  repo_root: /root/cexar-workbench
+  workspace: /workspace
+  chexpert_dataset_root: /workspace/chexpert_dataset_raw
+  windows_prefix: "D:\\Dataset_Chexpert\\archive"
+  cloud_prefix: /workspace/chexpert_dataset_raw
+  hf_home: /workspace/.cache/huggingface
+  torch_home: /workspace/.cache/torch
+  artifact_root: /workspace/exp_artifacts/EXP-0021
+  git_summary_dir: experiments/EXP-0021-rad-dino-10k-cloud-embedding-run/artifacts
+
+sampling:
+  target_images: 10000
+  seed: 20260527
+  deterministic: true
+  source_dataset: CheXpert
+
+model:
+  model_id: microsoft/rad-dino
+  expected_embedding_dim: 768
+  device: cuda
+
+outputs:
+  shard_size: 1000
+  run_root: /workspace/exp_artifacts/EXP-0021/runs
+  full_run_dir: /workspace/exp_artifacts/EXP-0021/runs/full_10k
+  dryrun_label_examples:
+    - /workspace/exp_artifacts/EXP-0021/runs/dryrun5
+    - /workspace/exp_artifacts/EXP-0021/runs/dryrun100
+
+forbidden:
+  - model_training
+  - classifier_training
+  - auroc_calculation
+  - auprc_calculation
+  - clinical_claims
+  - production_integration
+  - dataset_deletion
+  - cache_deletion
+  - committing_large_artifacts
